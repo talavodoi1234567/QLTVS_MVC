@@ -3,8 +3,9 @@ package View;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.*;
-public class View_DangNhap extends JFrame {
+
+public class View_DangNhap extends JFrame implements ActionListener {
+
     public View_DangNhap() {
         initComponents();
     }
@@ -53,7 +54,7 @@ public class View_DangNhap extends JFrame {
 //                btndangnhapActionPerformed(evt);
 //            }
 //        });
-
+        btndangnhap.addActionListener(this);
         jfpwd.setBackground(new java.awt.Color(204, 204, 204));
 
         btnThemTk.setBackground(new java.awt.Color(0, 153, 153));
@@ -66,7 +67,7 @@ public class View_DangNhap extends JFrame {
 //                //btnThemTkActionPerformed(evt);
 //            }
 //        });
-
+        btnThemTk.addActionListener(this);
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -147,12 +148,25 @@ public class View_DangNhap extends JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jfpwd;
-    private javax.swing.JTextField txtusername;
+    public javax.swing.JPasswordField jfpwd;
+    public javax.swing.JTextField txtusername;
     public void btndangnhapActionPerformed(ActionListener log){
         btndangnhap.addActionListener(log);
     }
     public void btnThemTkActionPerformed(ActionListener log){
         btnThemTk.addActionListener(log);
+    }
+    public void showMessage(String msg){
+        JOptionPane.showMessageDialog(this, msg);
+    }
+//    public void addLoginListener(ActionListener log) {//Lắng nghe
+//        btndangnhap.addActionListener(log);
+//    }
+//    public void addRegisterListener(ActionListener log) {
+//        btnThemTk.addActionListener(log);
+//    }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
     }
 }

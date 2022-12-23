@@ -3,10 +3,13 @@ package Model;
 import java.sql.*;
 
 public class TKDAO {
+    Connection con;
     private Connection getConnection() {
         String url = "jdbc:mysql://localhost:3306/qltv";
+
         try {
-            Connection con = (Connection) DriverManager.getConnection(url, "root", "");
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con =  DriverManager.getConnection("jdbc:mysql://localhost:3306/qltv", "root", "");
 
             System.out.println("Database connected");
 
@@ -15,6 +18,8 @@ public class TKDAO {
 
             System.out.println("Can't connect to database");
             throw new RuntimeException(ex);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
     }
 
