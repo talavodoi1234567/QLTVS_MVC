@@ -179,18 +179,18 @@ public class View_DangKy extends JFrame {
             }
         });
     }
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    public javax.swing.JButton jButton1;
+    public javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jfcrf;
-    private javax.swing.JPasswordField jfpwd;
-    private javax.swing.JTextField jtGmail;
-    private javax.swing.JTextField jtuser;
+    public javax.swing.JPasswordField jfcrf;
+    public javax.swing.JPasswordField jfpwd;
+    public javax.swing.JTextField jtGmail;
+    public javax.swing.JTextField jtuser;
     public void btnLoginActionPerformed(ActionListener log){
         jButton1.addActionListener(log);
     }
