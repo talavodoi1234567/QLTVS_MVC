@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class View_DangNhap extends JFrame implements ActionListener {
+public class View_DangNhap extends JFrame {
 
     public View_DangNhap() {
         initComponents();
@@ -22,6 +22,7 @@ public class View_DangNhap extends JFrame implements ActionListener {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
+        setLocationRelativeTo(null);
 
         jPanel1.setBorder(new javax.swing.border.MatteBorder(null));
 
@@ -54,7 +55,7 @@ public class View_DangNhap extends JFrame implements ActionListener {
 //                btndangnhapActionPerformed(evt);
 //            }
 //        });
-        btndangnhap.addActionListener(this);
+        //btndangnhap.addActionListener(this);
         jfpwd.setBackground(new java.awt.Color(204, 204, 204));
 
         btnThemTk.setBackground(new java.awt.Color(0, 153, 153));
@@ -67,7 +68,7 @@ public class View_DangNhap extends JFrame implements ActionListener {
 //                //btnThemTkActionPerformed(evt);
 //            }
 //        });
-        btnThemTk.addActionListener(this);
+        //btnThemTk.addActionListener(this);
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -135,13 +136,13 @@ public class View_DangNhap extends JFrame implements ActionListener {
         pack();
     }
 
-    public static void main(String[] args) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new View_DangNhap().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String[] args) {
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new View_DangNhap().setVisible(true);
+//            }
+//        });
+//    }
     private javax.swing.JButton btnThemTk;
     private javax.swing.JButton btndangnhap;
     private javax.swing.JLabel jLabel1;
@@ -165,8 +166,4 @@ public class View_DangNhap extends JFrame implements ActionListener {
 //    public void addRegisterListener(ActionListener log) {
 //        btnThemTk.addActionListener(log);
 //    }
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
-    }
 }

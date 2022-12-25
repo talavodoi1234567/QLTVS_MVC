@@ -2,6 +2,7 @@ package Controller;
 
 import Model.TKDAO;
 import Model.TaiKhoan;
+import View.View_DangKy;
 import View.View_DangNhap;
 import View.View_ThuVien;
 
@@ -36,6 +37,10 @@ public class DNControl implements ActionListener
                 view.showMessage("Đăng nhập thành công");
                 view.setVisible(false);
                 View_ThuVien viewThuVien = new View_ThuVien();
+
+            }else {
+                view.showMessage("Invalid username and/or password!");
+
             }
         }
 
@@ -46,6 +51,9 @@ public class DNControl implements ActionListener
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            view.setVisible(false);
+            View_DangKy viewDangKy= new View_DangKy();
+            viewDangKy.setVisible(true);
 
         }
     }
