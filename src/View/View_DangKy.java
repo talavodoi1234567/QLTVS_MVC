@@ -1,5 +1,6 @@
 package View;
 import javax.swing.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
 import java.util.regex.Pattern;
@@ -35,6 +36,7 @@ public class View_DangKy extends JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Thêm Tài Khoản Đăng Nhập");
+        setLocationRelativeTo(null);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
 
@@ -172,13 +174,13 @@ public class View_DangKy extends JFrame {
         pack();
     }
 
-    public static void main(String[] args) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new View_DangKy().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String[] args) {
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new View_DangKy().setVisible(true);
+//            }
+//        });
+//    }
     public javax.swing.JButton jButton1;
     public javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -197,4 +199,5 @@ public class View_DangKy extends JFrame {
     public void btnDangKiActionPerformed(ActionListener log){
         jButton2.addActionListener(log);
     }
+
 }
