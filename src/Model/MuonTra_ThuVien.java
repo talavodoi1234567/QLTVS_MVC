@@ -17,7 +17,7 @@ public class MuonTra_ThuVien extends Sach_ThuVien {
         this.SOLUONG = SOLUONG;
         this.QLTHUVIEN = QLTHUVIEN;
     }
-//dkmmmmmmmmmmmm!!!!!!!!
+    //solo yasuo?
     public String getMSV() {
         return MSV;
     }
