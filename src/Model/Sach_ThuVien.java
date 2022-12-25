@@ -5,18 +5,18 @@ public class Sach_ThuVien {
     int NAMXB;
     String NHAXB;
     int GIA;
-    String TINHTRANG;
+    int SOLUONG;
 
     public Sach_ThuVien() {
     }
 
-    public Sach_ThuVien(String MASACH, String TENSACH, int NAMXB, String NHAXB, int GIA, String TINHTRANG) {
+    public Sach_ThuVien(String MASACH, String TENSACH, int NAMXB, String NHAXB, int GIA, int SOLUONG) {
         this.MASACH = MASACH;
         this.TENSACH = TENSACH;
         this.NAMXB = NAMXB;
         this.NHAXB = NHAXB;
         this.GIA = GIA;
-        this.TINHTRANG = TINHTRANG;
+        this.SOLUONG = SOLUONG;
     }
 
     public String getMASACH() {
@@ -59,14 +59,12 @@ public class Sach_ThuVien {
         this.GIA = GIA;
     }
 
-    public String getTINHTRANG() {
-        return TINHTRANG;
+    public int getSOLUONG() {
+        return SOLUONG;
     }
-
-    public void setTINHTRANG(String TINHTRANG) {
-        this.TINHTRANG = TINHTRANG;
+}
+    public void setSOLUONG(int SOLUONG) {
+        this.SOLUONG = SOLUONG;
     }
-
-
 }
 

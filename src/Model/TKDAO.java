@@ -3,7 +3,7 @@ package Model;
 import java.sql.*;
 
 public class TKDAO {
-    private Connection getConnection() {
+    public Connection getConnection() {
         String url = "jdbc:mysql://localhost:3306/qltv";
         try {
             Connection con = (Connection) DriverManager.getConnection(url, "root", "");
@@ -18,7 +18,7 @@ public class TKDAO {
         }
     }
 
-    private void closeConnection(Connection con) {
+    public void closeConnection(Connection con) {
         try {
             con.close();
             System.out.println("Database closed");
