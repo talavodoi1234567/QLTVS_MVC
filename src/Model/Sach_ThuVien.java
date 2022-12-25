@@ -62,7 +62,6 @@ public class Sach_ThuVien {
     public int getSOLUONG() {
         return SOLUONG;
     }
-}
     public void setSOLUONG(int SOLUONG) {
         this.SOLUONG = SOLUONG;
     }
