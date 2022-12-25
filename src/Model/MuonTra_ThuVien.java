@@ -9,7 +9,7 @@ public class MuonTra_ThuVien extends Sach_ThuVien {
 
     public MuonTra_ThuVien() {
     }
-
+//test
     public MuonTra_ThuVien(String MSV, String MASACH, String NGAYMUON, String NGAYTRA, int SOLUONG, String QLTHUVIEN) {
         this.MSV = MSV;
         this.MASACH = MASACH;
