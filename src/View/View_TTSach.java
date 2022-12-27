@@ -31,7 +31,7 @@ public class View_TTSach extends javax.swing.JFrame {
         //Sltv = Them_Sua_Xoa_Find_TV.findSachAll();
         tblsachTV.setRowCount(0);//xóa dữ liệu trong table
         for (Sach_ThuVien sachTv : Sltv) {
-            tblsachTV.addRow(new Object[]{sachTv.getMASACH(), sachTv.getTENSACH(), sachTv.getNAMXB(), sachTv.getNHAXB(), sachTv.getGIA(), sachTv.getTINHTRANG()});
+            tblsachTV.addRow(new Object[]{sachTv.getMASACH(), sachTv.getTENSACH(), sachTv.getNAMXB(), sachTv.getNHAXB(), sachTv.getGIA(), sachTv.getSOLUONG()});
         }
     }
 

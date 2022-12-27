@@ -21,6 +21,7 @@ public class View_DangNhap extends JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
+        setLocationRelativeTo(null);
 
         jPanel1.setBorder(new javax.swing.border.MatteBorder(null));
 
@@ -147,12 +148,15 @@ public class View_DangNhap extends JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jfpwd;
-    private javax.swing.JTextField txtusername;
-    public void btndangnhapActionPerformed(ActionListener log){
+    public javax.swing.JPasswordField jfpwd;
+    public javax.swing.JTextField txtusername;
+    public void AddbtndangnhapActionPerformed(ActionListener log){
         btndangnhap.addActionListener(log);
     }
-    public void btnThemTkActionPerformed(ActionListener log){
+    public void AddbtnThemTkActionPerformed(ActionListener log){
         btnThemTk.addActionListener(log);
+    }
+    public void showMessage(String msg){
+        JOptionPane.showMessageDialog(this, msg);
     }
 }

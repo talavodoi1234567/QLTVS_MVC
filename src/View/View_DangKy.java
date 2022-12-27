@@ -1,4 +1,6 @@
 package View;
+import Model.TaiKhoan;
+
 import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.sql.*;
@@ -35,7 +37,7 @@ public class View_DangKy extends JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Thêm Tài Khoản Đăng Nhập");
-
+        setLocationRelativeTo(null);
         jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 102)));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -194,7 +196,14 @@ public class View_DangKy extends JFrame {
     public void btnLoginActionPerformed(ActionListener log){
         jButton1.addActionListener(log);
     }
-    public void btnDangKiActionPerformed(ActionListener log){
-        jButton2.addActionListener(log);
+    public void btnDangKiActionPerformed(ActionListener log){jButton2.addActionListener(log);}
+    public void showMessage(String message) {
+        JOptionPane.showMessageDialog(this, message);
+    }
+
+    public TaiKhoan getTaiKhoan() {
+
+
+        return null;
     }
 }
