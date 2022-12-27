@@ -189,8 +189,8 @@ public class View_DangKy extends JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    public javax.swing.JPasswordField jfcrf;
-    public javax.swing.JPasswordField jfpwd;
+    public static javax.swing.JPasswordField jfcrf;
+    public static javax.swing.JPasswordField jfpwd;
     public javax.swing.JTextField jtGmail;
     public javax.swing.JTextField jtuser;
     public void btnLoginActionPerformed(ActionListener log){
@@ -202,8 +202,7 @@ public class View_DangKy extends JFrame {
     }
 
     public TaiKhoan getTaiKhoan() {
-
-
-        return null;
+        TaiKhoan taiKhoan = new TaiKhoan(jtuser.getText(),jfpwd.getText(),jtGmail.getText());
+        return taiKhoan;
     }
 }

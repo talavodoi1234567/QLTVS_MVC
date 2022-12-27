@@ -54,4 +54,21 @@ public class MuonTraDAO extends TKDAO{
         }
         return false;
     }
+    public boolean deleteMT(MuonTra_ThuVien mttv){
+        Connection con = getConnection();
+        String sql = "DELETE FROM muontra WHERE MASACH=?";
+        try{
+            PreparedStatement deleteStatement = con.prepareStatement(sql);
+            deleteStatement.setString(1, mttv.getMASACH());
+            deleteStatement.executeUpdate();
+            deleteStatement.close();
+
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            closeConnection(con);
+        }
+        return false;
+    }
 }

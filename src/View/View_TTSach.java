@@ -22,8 +22,8 @@ public class View_TTSach extends javax.swing.JFrame {
 
         initComponents();
         tblsachTV = (DefaultTableModel) jTable2.getModel();
-        ShowSachTv();
-        ShowDuLieuSachTv();
+        //ShowSachTv();
+        //ShowDuLieuSachTv();
 
     }
 
@@ -35,26 +35,26 @@ public class View_TTSach extends javax.swing.JFrame {
         }
     }
 
-    public void ShowDuLieuSachTv() {
-        try {
-            jTable2.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-                @Override
-                public void valueChanged(ListSelectionEvent e) {
-                    if (jTable2.getSelectedRow() >= 0) {
-                        ms.setText(jTable2.getValueAt(jTable2.getSelectedRow(), 0) + "");
-                        ts.setText(jTable2.getValueAt(jTable2.getSelectedRow(), 1) + "");
-                        nxb.setText(jTable2.getValueAt(jTable2.getSelectedRow(), 2) + "");
-                        nnxb.setText(jTable2.getValueAt(jTable2.getSelectedRow(), 3) + "");
-                        txtgia.setText(jTable2.getValueAt(jTable2.getSelectedRow(), 4) + "");
-                        jcTinhtrang.setSelectedItem(jTable2.getValueAt(jTable2.getSelectedRow(), 5) + "");
-
-                    }
-                }
-            });
-        } catch (Exception e) {
-            System.out.println(e.toString());
-        }
-    }
+//    public void ShowDuLieuSachTv() {
+//        try {
+//            jTable2.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+//                @Override
+//                public void valueChanged(ListSelectionEvent e) {
+//                    if (jTable2.getSelectedRow() >= 0) {
+//                        ms.setText(jTable2.getValueAt(jTable2.getSelectedRow(), 0) + "");
+//                        ts.setText(jTable2.getValueAt(jTable2.getSelectedRow(), 1) + "");
+//                        nxb.setText(jTable2.getValueAt(jTable2.getSelectedRow(), 2) + "");
+//                        nnxb.setText(jTable2.getValueAt(jTable2.getSelectedRow(), 3) + "");
+//                        txtgia.setText(jTable2.getValueAt(jTable2.getSelectedRow(), 4) + "");
+//                        jcTinhtrang.setSelectedItem(jTable2.getValueAt(jTable2.getSelectedRow(), 5) + "");
+//
+//                    }
+//                }
+//            });
+//        } catch (Exception e) {
+//            System.out.println(e.toString());
+//        }
+//    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

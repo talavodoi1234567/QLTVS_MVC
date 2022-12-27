@@ -46,6 +46,7 @@ public class DNControl {
             view.setVisible(false);
             View_DangKy viewDangKy = new View_DangKy();
             viewDangKy.setVisible(true);
+            DKControl dkControl= new DKControl(viewDangKy);
         }
     }
 }

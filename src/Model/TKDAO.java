@@ -64,6 +64,7 @@ public class TKDAO {
 
             return true;
         } catch (Exception e) {
+            e.printStackTrace();
         } finally {
             closeConnection(con);
         }
