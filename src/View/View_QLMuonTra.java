@@ -16,37 +16,37 @@ public class View_QLMuonTra extends JFrame {
     public View_QLMuonTra(){
         initComponents();
         tbMuontra = (DefaultTableModel) tabMuontra.getModel();
-        ShowMuonTraSach();
-        ShowDuLieuSachMuon();
+//        ShowMuonTraSach();
+//        ShowDuLieuSachMuon();
     }
-    private void ShowMuonTraSach() {
-        //slmt = Them_Sua_Xoa_Find_TV.HienThiAllMuonTra();
-        tbMuontra.setRowCount(0);
-        for (MuonTra_ThuVien muonTra_ThuVien : slmt) {
-            tbMuontra.addRow(new Object[]{muonTra_ThuVien.getMSV(), muonTra_ThuVien.getMASACH(), muonTra_ThuVien.getNGAYMUON(), muonTra_ThuVien.getNGAYTRA(), muonTra_ThuVien.getSOLUONG(), muonTra_ThuVien.getQLTHUVIEN()});
-        }
-    }
+//    private void ShowMuonTraSach() {
+//        //slmt = Them_Sua_Xoa_Find_TV.HienThiAllMuonTra();
+//        tbMuontra.setRowCount(0);
+//        for (MuonTra_ThuVien muonTra_ThuVien : slmt) {
+//            tbMuontra.addRow(new Object[]{muonTra_ThuVien.getMSV(), muonTra_ThuVien.getMASACH(), muonTra_ThuVien.getNGAYMUON(), muonTra_ThuVien.getNGAYTRA(), muonTra_ThuVien.getSOLUONG(), muonTra_ThuVien.getQLTHUVIEN()});
+//        }
+//    }
 
-    public void ShowDuLieuSachMuon() {
-        try {
-            tabMuontra.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-                @Override
-                public void valueChanged(ListSelectionEvent e) {
-                    if (tabMuontra.getSelectedRow() >= 0) {
-                        txtMsv.setText(tabMuontra.getValueAt(tabMuontra.getSelectedRow(), 0) + "");
-                        txtms.setText(tabMuontra.getValueAt(tabMuontra.getSelectedRow(), 1) + "");
-                        txtNm.setText(tabMuontra.getValueAt(tabMuontra.getSelectedRow(), 2) + "");
-                        txtNt.setText(tabMuontra.getValueAt(tabMuontra.getSelectedRow(), 3) + "");
-                        txtSl.setText(tabMuontra.getValueAt(tabMuontra.getSelectedRow(), 4) + "");
-                        txtQltv.setText(tabMuontra.getValueAt(tabMuontra.getSelectedRow(), 5) + "");
-
-                    }
-                }
-            });
-        } catch (Exception e) {
-            System.out.println(e.toString());
-        }
-    }
+//    public void ShowDuLieuSachMuon() {
+//        try {
+//            tabMuontra.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+//                @Override
+//                public void valueChanged(ListSelectionEvent e) {
+//                    if (tabMuontra.getSelectedRow() >= 0) {
+//                        txtMsv.setText(tabMuontra.getValueAt(tabMuontra.getSelectedRow(), 0) + "");
+//                        txtms.setText(tabMuontra.getValueAt(tabMuontra.getSelectedRow(), 1) + "");
+//                        txtNm.setText(tabMuontra.getValueAt(tabMuontra.getSelectedRow(), 2) + "");
+//                        txtNt.setText(tabMuontra.getValueAt(tabMuontra.getSelectedRow(), 3) + "");
+//                        txtSl.setText(tabMuontra.getValueAt(tabMuontra.getSelectedRow(), 4) + "");
+//                        txtQltv.setText(tabMuontra.getValueAt(tabMuontra.getSelectedRow(), 5) + "");
+//
+//                    }
+//                }
+//            });
+//        } catch (Exception e) {
+//            System.out.println(e.toString());
+//        }
+//    }
     private void initComponents() {
 
         jMenuItem1 = new javax.swing.JMenuItem();
