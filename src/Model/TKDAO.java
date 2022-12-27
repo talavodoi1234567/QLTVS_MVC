@@ -42,6 +42,7 @@ public class TKDAO {
                 bl = true;
             } else bl = false;
             loginStatement.close();
+
         } catch (Exception e) {
         } finally {
             closeConnection(con);
@@ -69,6 +70,5 @@ public class TKDAO {
             closeConnection(con);
         }
         return false;
-        //1
     }
 }

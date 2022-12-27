@@ -43,10 +43,11 @@ public class DNControl {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            view.setVisible(false);
             View_DangKy viewDangKy = new View_DangKy();
             viewDangKy.setVisible(true);
             DKControl dkControl= new DKControl(viewDangKy);
+            //view.setVisible(false);
+            view.dispose();
         }
     }
 }

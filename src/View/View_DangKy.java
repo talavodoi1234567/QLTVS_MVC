@@ -9,17 +9,6 @@ public class View_DangKy extends JFrame {
     public View_DangKy() {
         initComponents();
     }
-    String url = "jdbc:mysql://localhost:3306/qltv";
-    String user = "root";
-    String password = "";
-    Statement st;
-    ResultSet rs;
-    String regexPattern = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
-    public static boolean patternMatches(String emailAddress, String regexPattern) {
-        return Pattern.compile(regexPattern)
-                .matcher(emailAddress)
-                .matches();
-    }
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
