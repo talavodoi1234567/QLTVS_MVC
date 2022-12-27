@@ -29,8 +29,10 @@ public class DNControl {
         {     Boolean sucess =  tkdao.login(view.txtusername.getText(),view.jfpwd.getText());
               if(sucess) {
                   view.showMessage("Đăng nhập thành công");
-                  view.setVisible(false);
                   View_ThuVien viewThuVien = new View_ThuVien();
+                  viewThuVien.setVisible(true);
+                  //view.setVisible(false);
+                  view.dispose();
               } else
               {
                   view.showMessage("Đăng nhập thất bại");
