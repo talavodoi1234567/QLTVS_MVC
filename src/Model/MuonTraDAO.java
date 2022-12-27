@@ -60,6 +60,8 @@ public class MuonTraDAO extends TKDAO{
         try{
             PreparedStatement deleteStatement = con.prepareStatement(sql);
             deleteStatement.setString(1, mttv.getMASACH());
+            deleteStatement.executeUpdate();
+            deleteStatement.close();
 
             return true;
         }catch (Exception e){
