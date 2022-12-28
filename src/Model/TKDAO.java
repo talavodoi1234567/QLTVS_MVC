@@ -75,17 +75,16 @@ public class TKDAO {
     public boolean checkUser (String user){
         Connection con = getConnection();
         String sql = "SELECT username FROM ACCOUNT";
-        boolean check = false;
+        boolean check = true;
         try {
             PreparedStatement CheckStatement = con.prepareStatement(sql);
 
             ResultSet rs = CheckStatement.executeQuery();
-           //kiểm tra usernam có trùng chưa
+           //kiểm tra username có trùng chưa
             while (rs.next()){
-                if(user== rs.getString("username")){
+                if(user.equals(rs.getString("username"))){
                     check = false;
-                } else {
-                    check = true;
+                    break;
                 }
             }
             CheckStatement.close();

@@ -190,8 +190,4 @@ public class View_DangKy extends JFrame {
         JOptionPane.showMessageDialog(this, message);
     }
 
-    public TaiKhoan getTaiKhoan() {
-        TaiKhoan taiKhoan = new TaiKhoan(jtuser.getText(),jfpwd.getText(),jtGmail.getText());
-        return taiKhoan;
-    }
 }

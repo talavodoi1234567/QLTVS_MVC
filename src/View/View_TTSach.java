@@ -1,7 +1,6 @@
 package View;
 
 import Model.Sach_ThuVien;
-//import LopQltv.Them_Sua_Xoa_Find_TV;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -83,7 +82,7 @@ public class View_TTSach extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         txtgia = new javax.swing.JTextField();
-        jcTinhtrang = new javax.swing.JComboBox<>();
+        txtSoLuong = new javax.swing.JTextField();
         txtTk = new javax.swing.JTextField();
         btnPrint1 = new javax.swing.JButton();
         btnTroLai = new javax.swing.JButton();
@@ -191,7 +190,7 @@ public class View_TTSach extends javax.swing.JFrame {
                         {null, null, null, null, null, null}
                 },
                 new String [] {
-                        "Mã Sách", "Tên Sách", "Năm Xuất Bản", "Nhà Xuất Bản", "Giá", "Tình Trạng"
+                        "Mã Sách", "Tên Sách", "Năm Xuất Bản", "Nhà Xuất Bản", "Giá", "Số Lượng"
                 }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -232,12 +231,11 @@ public class View_TTSach extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Tình Trạng :");
+        jLabel7.setText("Số lượng :");
 
         txtgia.setBackground(new java.awt.Color(204, 204, 204));
 
-        jcTinhtrang.setBackground(new java.awt.Color(153, 153, 153));
-        jcTinhtrang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Còn ", "Hết" }));
+        txtSoLuong.setBackground(new java.awt.Color(204, 204, 204));
 
         txtTk.setBackground(new java.awt.Color(204, 204, 204));
         txtTk.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -295,7 +293,7 @@ public class View_TTSach extends javax.swing.JFrame {
                                                                         .addGap(20, 20, 20)
                                                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                 .addComponent(nnxb)
-                                                                                .addComponent(jcTinhtrang, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                                                                .addComponent(txtSoLuong, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                                         .addComponent(btnReset)
@@ -333,7 +331,7 @@ public class View_TTSach extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel7)
                                         .addComponent(txtgia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jcTinhtrang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtSoLuong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jLabel6))
                                 .addGap(45, 45, 45)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -390,6 +388,7 @@ public class View_TTSach extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+// </editor-fold>//GEN-END:initComponents
 
 //    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
 //        int th = JOptionPane.showConfirmDialog(this, "Bạn có muốn thêm", "Confirm", JOptionPane.YES_NO_OPTION);
@@ -569,7 +568,7 @@ public class View_TTSach extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JComboBox<String> jcTinhtrang;
+    private javax.swing.JTextField txtSoLuong;
     private javax.swing.JTextField ms;
     private javax.swing.JTextField nnxb;
     private javax.swing.JTextField nxb;
