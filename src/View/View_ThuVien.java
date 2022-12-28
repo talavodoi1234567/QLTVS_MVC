@@ -2,6 +2,7 @@ package View;
 
 
 import javax.swing.*;
+import java.awt.event.ActionListener;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -36,6 +37,7 @@ public class View_ThuVien extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(View_ThuVien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -207,11 +209,21 @@ public class View_ThuVien extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnQlm;
-    private javax.swing.JButton btnQls;
-    private javax.swing.JButton btnthoat;
+    public javax.swing.JButton btnQlm;
+    public javax.swing.JButton btnQls;
+    public javax.swing.JButton btnthoat;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+    public void QLSActionPerformed(ActionListener log){
+        btnQls.addActionListener(log);
+    }
+    public void QLMActionPerformed(ActionListener log){
+        btnQlm.addActionListener(log);
+    }
+    public void ThoatActionPerformed(ActionListener log){
+        btnthoat.addActionListener(log);
+    }
+
 }

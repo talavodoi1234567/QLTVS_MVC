@@ -33,6 +33,7 @@ public class DNControl {
                   viewThuVien.setVisible(true);
                   //view.setVisible(false);
                   view.dispose();
+                  TVcontrol tVcontrol = new TVcontrol(viewThuVien);
               } else
               {
                   view.showMessage("Đăng nhập thất bại");
