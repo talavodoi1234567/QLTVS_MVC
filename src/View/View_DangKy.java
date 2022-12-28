@@ -180,8 +180,8 @@ public class View_DangKy extends JFrame {
     private javax.swing.JPanel jPanel1;
     public static javax.swing.JPasswordField jfcrf;
     public static javax.swing.JPasswordField jfpwd;
-    public javax.swing.JTextField jtGmail;
-    public javax.swing.JTextField jtuser;
+    public static javax.swing.JTextField jtGmail;
+    public static javax.swing.JTextField jtuser;
     public void btnLoginActionPerformed(ActionListener log){
         jButton1.addActionListener(log);
     }

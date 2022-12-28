@@ -14,8 +14,9 @@ public class TKDAO {
         } catch (SQLException ex) {
 
             System.out.println("Can't connect to database");
-            throw new RuntimeException(ex);
+            ex.printStackTrace();
         }
+        return null;
     }
 
     public void closeConnection(Connection con) {
@@ -70,5 +71,29 @@ public class TKDAO {
             closeConnection(con);
         }
         return false;
+    }
+    public boolean checkUser (String user){
+        Connection con = getConnection();
+        String sql = "SELECT username FROM ACCOUNT";
+        boolean check = false;
+        try {
+            PreparedStatement CheckStatement = con.prepareStatement(sql);
+
+            ResultSet rs = CheckStatement.executeQuery();
+           //kiểm tra usernam có trùng chưa
+            while (rs.next()){
+                if(user== rs.getString("username")){
+                    check = false;
+                } else {
+                    check = true;
+                }
+            }
+            CheckStatement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            closeConnection(con);
+        }
+        return check;
     }
 }

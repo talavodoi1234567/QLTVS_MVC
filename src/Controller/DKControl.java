@@ -44,28 +44,43 @@ public class DKControl {
         {
             view.showMessage("Vui lòng điền đầy đủ thông tin");
         }else {
-            if(view.jfpwd.getText().equals(view.jfcrf.getText())){
-                TaiKhoan u = view.getTaiKhoan();
-                Boolean success= tkdao.signup(u);
-                if(success){
-                    view.showMessage("Đăng kí thành công");
-                    View_DangNhap viewDangNhap = new View_DangNhap();
-                    DNControl dnControl = new DNControl(viewDangNhap);
-                    viewDangNhap.setVisible(true);
-                    //view.setVisible(false);
-                    view.dispose();
-                } else {
-                    view.showMessage("Đăng kí thất bại");
+            if(tkdao.checkUser(view.jtuser.getText()))
+            {
+                if (patternMatches(view.jtGmail.getText(),regexPattern)){
+                    if(view.jfpwd.getText().equals(view.jfcrf.getText())){
+                        TaiKhoan u = view.getTaiKhoan();
+                        Boolean success= tkdao.signup(u);
+                        if(success){
+                            view.showMessage("Đăng kí thành công");
+                            View_DangNhap viewDangNhap = new View_DangNhap();
+                            DNControl dnControl = new DNControl(viewDangNhap);
+                            viewDangNhap.setVisible(true);
+                            //view.setVisible(false);
+                            view.dispose();
+                        } else {
+                            view.showMessage("Đăng kí thất bại");
+                            reset();
+                        }
+                    }else {
+                        view.showMessage("Mật khẩu không trùng nhau");
+                        reset();
+                    }
+                }else{
+                    view.showMessage("Email định dạng không đúng");
+                    reset();
                 }
-            }else {
-                view.showMessage("Mật khẩu không trùng nhau");
+            }else{
+                view.showMessage("Đã tồn tại username, hãy đặt lại");
                 reset();
             }
+
         }
         }
         public void reset() {
             View_DangKy.jfpwd.setText("");
             View_DangKy.jfcrf.setText("");
+            View_DangKy.jtuser.setText("");
+            View_DangKy.jtGmail.setText("");
         }
     }
 }
