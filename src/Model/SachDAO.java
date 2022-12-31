@@ -17,7 +17,7 @@ public class SachDAO extends TKDAO {
             ResultSet rs = selectStatement.executeQuery(sql);
             while (rs.next()){
                 String maSach = rs.getString("MASACH");
-                String tenSach = rs.getString("MASACH");
+                String tenSach = rs.getString("TENSACH");
                 int namXb = rs.getInt("NAMXB");
                 String nhaXb = rs.getString("NHAXB");
                 int gia = rs.getInt("GIA");
@@ -40,8 +40,8 @@ public class SachDAO extends TKDAO {
             PreparedStatement addStatement = con.prepareStatement(sql);
             addStatement.setString(1, sach.getMASACH());
             addStatement.setString(2, sach.getTENSACH());
-            addStatement.setString(3, sach.getNHAXB());
-            addStatement.setInt(4, sach.getNAMXB());
+            addStatement.setInt(3, sach.getNAMXB());
+            addStatement.setString(4, sach.getNHAXB());
             addStatement.setInt(5, sach.getGIA());
             addStatement.setInt(6, sach.getSOLUONG());
 

@@ -222,8 +222,6 @@ public class View_ThuVien extends javax.swing.JFrame {
     public void QLMActionPerformed(ActionListener log){
         btnQlm.addActionListener(log);
     }
-    public void ThoatActionPerformed(ActionListener log){
-        btnthoat.addActionListener(log);
-    }
+    public void ThoatActionPerformed(ActionListener log){ btnthoat.addActionListener(log);}
 
 }
