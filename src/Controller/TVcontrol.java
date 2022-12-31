@@ -21,9 +21,9 @@ public class TVcontrol {
         @Override
         public void actionPerformed(ActionEvent e) {
             View_QLMuonTra viewQlMuonTra = new View_QLMuonTra();
+            MTControl mtControl = new MTControl(viewQlMuonTra);
             viewQlMuonTra.setVisible(true);
             view.dispose();
-
         }
     }
     class QLSActionListener implements ActionListener{

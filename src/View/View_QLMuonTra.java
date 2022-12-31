@@ -1,12 +1,13 @@
 package View;
 
+import Model.MTTableModel;
 import Model.MuonTra_ThuVien;
+import com.toedter.calendar.JDateChooser;
 
 import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +16,7 @@ public class View_QLMuonTra extends JFrame {
     private List<MuonTra_ThuVien> slmt = new ArrayList<>();
     public View_QLMuonTra(){
         initComponents();
-        tbMuontra = (DefaultTableModel) tabMuontra.getModel();
+//        tbMuontra = (DefaultTableModel) tabMuontra.getModel();
 //        ShowMuonTraSach();
 //        ShowDuLieuSachMuon();
     }
@@ -63,8 +64,8 @@ public class View_QLMuonTra extends JFrame {
         txtSl = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         txtQltv = new javax.swing.JTextField();
-        txtNm = new javax.swing.JTextField();
-        txtNt = new javax.swing.JTextField();
+        txtNm = new JDateChooser();
+        txtNt = new JDateChooser();
         jLabel9 = new javax.swing.JLabel();
         txtms = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
@@ -114,13 +115,13 @@ public class View_QLMuonTra extends JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 102, 102));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Ngày Mượn(yyyy-mm-dd): ");
+        jLabel4.setText("Ngày Mượn: ");
 
         jLabel5.setBackground(new java.awt.Color(0, 153, 153));
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 102, 102));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Ngày Trả(yyyy-mm-dd): ");
+        jLabel5.setText("Ngày Trả: ");
 
         jLabel6.setBackground(new java.awt.Color(0, 153, 153));
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -131,6 +132,7 @@ public class View_QLMuonTra extends JFrame {
         txtMsv.setBackground(new java.awt.Color(204, 204, 204));
 
         txtSl.setBackground(new java.awt.Color(204, 204, 204));
+        //txtSl.addKeyListener();
 //        txtSl.addActionListener(new java.awt.event.ActionListener() {
 //            public void actionPerformed(java.awt.event.ActionEvent evt) {
 //                txtSlActionPerformed(evt);
@@ -485,14 +487,18 @@ public class View_QLMuonTra extends JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable tabMuontra;
-    private javax.swing.JTextField txtMsv;
-    private javax.swing.JTextField txtNm;
-    private javax.swing.JTextField txtNt;
-    private javax.swing.JTextField txtQltv;
-    private javax.swing.JTextField txtSl;
-    private javax.swing.JTextField txtTkiem;
-    private javax.swing.JTextField txtms;
+    public javax.swing.JTable tabMuontra;
+    public javax.swing.JTextField txtMsv;
+    public JDateChooser txtNm;
+    public JDateChooser txtNt;
+    public javax.swing.JTextField txtQltv;
+    public javax.swing.JTextField txtSl;
+    public javax.swing.JTextField txtTkiem;
+    public javax.swing.JTextField txtms;
+    public void setTableModel(MTTableModel tableModel){
+        tabMuontra.setModel(tableModel);
+    }
+    public void ksSoLuong(KeyAdapter k){txtSl.addKeyListener(k);}
     public void btnChomuonActionPerformed(ActionListener log){
         btnChomuon.addActionListener(log);
     }

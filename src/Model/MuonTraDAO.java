@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.sql.Date;
 import java.util.List;
 
 public class MuonTraDAO extends TKDAO{
@@ -16,10 +17,10 @@ public class MuonTraDAO extends TKDAO{
             Statement selectStatement = con.createStatement();
             ResultSet rs = selectStatement.executeQuery(sql);
             while (rs.next()){
-                String msv = rs.getString("MSV");
+                String msv = rs.getString("MASV");
                 String maSach = rs.getString("MASACH");
-                String ngayMuon = rs.getString("NGAYMUON");
-                String ngayTra = rs.getString("NGAYTRA");
+                Date ngayMuon = rs.getDate("NGAYMUON");
+                Date ngayTra = rs.getDate("NGAYTRA");
                 int sl = rs.getInt("SOLUONG");
                 String qltv = rs.getString("QLTHUVIEN");
                 MuonTra_ThuVien mttv = new MuonTra_ThuVien(msv, maSach, ngayMuon, ngayTra, sl, qltv);
@@ -40,8 +41,8 @@ public class MuonTraDAO extends TKDAO{
             PreparedStatement addStatement = con.prepareStatement(sql);
             addStatement.setString(1, mttv.getMSV());
             addStatement.setString(2, mttv.getMASACH());
-            addStatement.setString(3, mttv.getNGAYMUON());
-            addStatement.setString(4, mttv.getNGAYTRA());
+            addStatement.setDate(3, mttv.getNGAYMUON());
+            addStatement.setDate(4, mttv.getNGAYTRA());
             addStatement.setInt(5, mttv.getSOLUONG());
             addStatement.setString(6, mttv.getQLTHUVIEN());
             addStatement.executeUpdate();

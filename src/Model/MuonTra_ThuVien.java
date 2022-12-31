@@ -1,15 +1,17 @@
 package Model;
 
+import java.sql.Date;
+
 public class MuonTra_ThuVien extends Sach_ThuVien {
     String MSV;
     String MASACH;
-    String NGAYMUON, NGAYTRA;
+    Date NGAYMUON, NGAYTRA;
     int SOLUONG;
     String QLTHUVIEN;
 
     public MuonTra_ThuVien() {
     }
-    public MuonTra_ThuVien(String MSV, String MASACH, String NGAYMUON, String NGAYTRA, int SOLUONG, String QLTHUVIEN) {
+    public MuonTra_ThuVien(String MSV, String MASACH, Date NGAYMUON, Date NGAYTRA, int SOLUONG, String QLTHUVIEN) {
         this.MSV = MSV;
         this.MASACH = MASACH;
         this.NGAYMUON = NGAYMUON;
@@ -33,19 +35,19 @@ public class MuonTra_ThuVien extends Sach_ThuVien {
         this.MASACH = MASACH;
     }
 
-    public String getNGAYMUON() {
+    public Date getNGAYMUON() {
         return NGAYMUON;
     }
 
-    public void setNGAYMUON(String NGAYMUON) {
+    public void setNGAYMUON(Date NGAYMUON) {
         this.NGAYMUON = NGAYMUON;
     }
 
-    public String getNGAYTRA() {
+    public Date getNGAYTRA() {
         return NGAYTRA;
     }
 
-    public void setNGAYTRA(String NGAYTRA) {
+    public void setNGAYTRA(Date NGAYTRA) {
         this.NGAYTRA = NGAYTRA;
     }
 
