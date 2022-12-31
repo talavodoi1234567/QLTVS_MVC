@@ -22,9 +22,10 @@ public class MTControl {
         this.view = view;
         this.mtdao = new MuonTraDAO();
         this.tableModel = new MTTableModel();
-        List<MuonTra_ThuVien> mttv = mtdao.hienthiMT();
         view.setTableModel(tableModel);
-        tableModel.setData(mttv);
+//        List<MuonTra_ThuVien> mttv = mtdao.hienthiMT();
+//        tableModel.setData(mttv);
+        showDL();
         addChonSach();
         view.btnChomuonActionPerformed(new ChoMuonActionPerformed());
         view.btnMuonmoiActionPerformed(new MuonMoiActionPerformed());
@@ -65,11 +66,8 @@ public class MTControl {
     }
     private void showDL(){
         List<MuonTra_ThuVien> data = mtdao.hienthiMT();
-        tableModel.setRowCount(0);
-        for (MuonTra_ThuVien mttv: data){
-            tableModel.addRow(new Object[]{mttv.getMSV(), mttv.getMASACH(), mttv.getNGAYMUON(),
-                    mttv.getNGAYTRA(), mttv.getSOLUONG(), mttv.getQLTHUVIEN()});
-        }
+        //tableModel = new MTTableModel();
+        tableModel.setData(data);
     }
     class ChoMuonActionPerformed implements ActionListener{
         @Override
@@ -82,7 +80,7 @@ public class MTControl {
             String qltv = view.txtQltv.getText();
             MuonTra_ThuVien mttv_new = new MuonTra_ThuVien(msv, ms, nm, nt, sl, qltv);
             mtdao.addMT(mttv_new);
-            //showDL();
+            showDL();
         }
     }
     class MuonMoiActionPerformed implements ActionListener{
@@ -117,7 +115,9 @@ public class MTControl {
     class TraSachActionPerformed implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
-            System.out.println("Tra sach duoc bam");
+            String msv = view.txtMsv.getText();
+            String ms = view.txtms.getText();
+
         }
     }
     class thoat1ActionPerformed implements ActionListener{

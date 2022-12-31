@@ -57,10 +57,11 @@ public class MuonTraDAO extends TKDAO{
     }
     public boolean deleteMT(MuonTra_ThuVien mttv){
         Connection con = getConnection();
-        String sql = "DELETE FROM muontra WHERE MASACH=?";
+        String sql = "DELETE FROM muontra WHERE MASV=? and MASACH=?";
         try{
             PreparedStatement deleteStatement = con.prepareStatement(sql);
-            deleteStatement.setString(1, mttv.getMASACH());
+            deleteStatement.setString(1, mttv.getMSV());
+            deleteStatement.setString(2, mttv.getMASACH());
             deleteStatement.executeUpdate();
             deleteStatement.close();
 
