@@ -499,7 +499,6 @@ public class View_QLMuonTra extends JFrame {
     public void setTableModel(MTTableModel tableModel){
         tabMuontra.setModel(tableModel);
     }
-    public void ksSoLuong(KeyAdapter k){txtSl.addKeyListener(k);}
     public void btnChomuonActionPerformed(ActionListener log){
         btnChomuon.addActionListener(log);
     }
