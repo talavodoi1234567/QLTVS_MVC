@@ -1,11 +1,13 @@
 package View;
 
+import Model.SachTableModel;
 import Model.Sach_ThuVien;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -548,14 +550,14 @@ public class View_TTSach extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnPrint1;
-    private javax.swing.JButton btnReset;
-    private javax.swing.JButton btnThem;
-    private javax.swing.JButton btnThoat;
-    private javax.swing.JButton btnTroLai;
-    private javax.swing.JButton btnsua;
-    private javax.swing.JButton btntk;
-    private javax.swing.JButton btnxoa;
+    public javax.swing.JButton btnPrint1;
+    public javax.swing.JButton btnReset;
+    public javax.swing.JButton btnThem;
+    public javax.swing.JButton btnThoat;
+    public javax.swing.JButton btnTroLai;
+    public javax.swing.JButton btnsua;
+    public javax.swing.JButton btntk;
+    public javax.swing.JButton btnxoa;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -567,13 +569,25 @@ public class View_TTSach extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTextField txtSoLuong;
-    private javax.swing.JTextField ms;
-    private javax.swing.JTextField nnxb;
-    private javax.swing.JTextField nxb;
-    private javax.swing.JTextField ts;
-    private javax.swing.JTextField txtTk;
-    private javax.swing.JTextField txtgia;
+    public javax.swing.JTable jTable2;
+    public javax.swing.JTextField txtSoLuong;
+    public javax.swing.JTextField ms;
+    public javax.swing.JTextField nnxb;
+    public javax.swing.JTextField nxb;
+    public javax.swing.JTextField ts;
+    public javax.swing.JTextField txtTk;
+    public javax.swing.JTextField txtgia;
     // End of variables declaration//GEN-END:variables
+    public void showMessage(String message) {
+        JOptionPane.showMessageDialog(this, message);
+    }
+    public void BtnThoatActionPerformed(ActionListener log){ btnThoat.addActionListener(log);}
+    public void BtnSuaActionPerformed(ActionListener log){ btnsua.addActionListener(log);}
+    public void BtnThemActionPerformed(ActionListener log){ btnThem.addActionListener(log);}
+    public void BtnXoaActionPerformed(ActionListener log){ btnxoa.addActionListener(log);}
+    public void BtnPrint1ActionPerformed(ActionListener log){ btnPrint1.addActionListener(log);}
+    public void BtnTrolaiActionPerformed(ActionListener log){ btnTroLai.addActionListener(log);}
+    public void BtnTkActionPerformed(ActionListener log){ btntk.addActionListener(log);}
+    public void BtnResetActionPerformed(ActionListener log){ btnReset.addActionListener(log);}
+    public void setTableModel(SachTableModel tableModel){jTable2.setModel(tableModel);}
 }

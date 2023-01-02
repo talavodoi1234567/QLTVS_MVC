@@ -31,6 +31,7 @@ public class TVcontrol {
         @Override
         public void actionPerformed(ActionEvent e) {
             View_TTSach viewTtSach = new View_TTSach();
+            QLSControl qlsControl = new QLSControl(viewTtSach);
             viewTtSach.setVisible(true);
             view.dispose();
         }
