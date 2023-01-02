@@ -75,26 +75,6 @@ public class MuonTraDAO extends TKDAO {
         }
         return false;
     }
-    public List<MuonTra_ThuVien> searchByMSV(List<MuonTra_ThuVien> list, String msv){
-        List<MuonTra_ThuVien> result = new ArrayList<>();
-        Connection con  = getConnection();
-        for (MuonTra_ThuVien mttv : list){
-            if (msv.compareTo(mttv.getMSV()) == 0)
-                result.add(mttv);
-        }
-        return result;
-    }
-//    public String convert_SQL(String msv, String ms , Date nm, Date nt, int sl, String qltv){
-//        String sql = "SELECT * FROM muontra WHERE MASV LIKE ? AND MASACH LIKE ? AND QLTV LIKE ? ";
-//        if (nm != null){
-//            sql += "AND NGAYMUON = ' " + nm.toString()+ " ' ";
-//        }
-//        if (nt != null){
-//            sql += "AND NGAYTRA = ' " + nt.toString()+ " ' ";
-//        }
-//        System.out.println(sql);
-//        return sql;
-//    }
     public List<MuonTra_ThuVien> searchMT(String msv, String ms) {
         Connection con = getConnection();
         List<MuonTra_ThuVien> ds = new ArrayList<>();
