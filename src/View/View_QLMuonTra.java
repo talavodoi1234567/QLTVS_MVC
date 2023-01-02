@@ -8,6 +8,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -519,5 +520,11 @@ public class View_QLMuonTra extends JFrame {
     }
     public void btnTrasachActionPerformed(ActionListener log){
         btnTrasach.addActionListener(log);
+    }
+    public MuonTra_ThuVien getMT(){
+        MuonTra_ThuVien mt = new MuonTra_ThuVien(txtMsv.getText(), txtms.getText(),
+                new Date(txtNm.getDate().getTime()), new Date(txtNt.getDate().getTime()),
+                Integer.parseInt(txtSl.getText()), txtQltv.getText());
+        return mt;
     }
 }

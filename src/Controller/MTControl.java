@@ -4,7 +4,9 @@ import Model.MTTableModel;
 import Model.MuonTraDAO;
 import Model.MuonTra_ThuVien;
 import View.View_QLMuonTra;
+import View.View_ThuVien;
 
+import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.event.ActionEvent;
@@ -24,9 +26,9 @@ public class MTControl {
         this.tableModel = new MTTableModel();
         view.setTableModel(tableModel);
 //        List<MuonTra_ThuVien> mttv = mtdao.hienthiMT();
-//        tableModel.setData(mttv);
-        showDL();
+//        tableModel.setData(mttv)
         addChonSach();
+        showDL();
         view.btnChomuonActionPerformed(new ChoMuonActionPerformed());
         view.btnMuonmoiActionPerformed(new MuonMoiActionPerformed());
         view.btnPintActionPerformed(new PintActionPerformed());
@@ -64,22 +66,21 @@ public class MTControl {
             e.printStackTrace();
         }
     }
-    private void showDL(){
+    private void showDL(){// xuất ra tất cả dữ liệu
         List<MuonTra_ThuVien> data = mtdao.hienthiMT();
         //tableModel = new MTTableModel();
         tableModel.setData(data);
     }
+    private void showDL(List<MuonTra_ThuVien> mttv){//xuất ra dữ liệu đã lọc
+        tableModel.setData(mttv);
+    }
     class ChoMuonActionPerformed implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
-            String msv = view.txtMsv.getText();
-            String ms = view.txtms.getText();
-            Date nm = new java.sql.Date(view.txtNm.getDate().getTime());
-            Date nt = new java.sql.Date(view.txtNt.getDate().getTime());
-            int sl = Integer.parseInt(view.txtSl.getText());
-            String qltv = view.txtQltv.getText();
-            MuonTra_ThuVien mttv_new = new MuonTra_ThuVien(msv, ms, nm, nt, sl, qltv);
-            mtdao.addMT(mttv_new);
+            MuonTra_ThuVien mt = view.getMT();
+            boolean b = mtdao.addMT(mt);
+            if (b) JOptionPane.showMessageDialog(view, "Thêm thành công");
+            else JOptionPane.showMessageDialog(view, "Thêm thất bại");
             showDL();
         }
     }
@@ -88,42 +89,56 @@ public class MTControl {
         public void actionPerformed(ActionEvent e) {
             view.txtMsv.setText("");
             view.txtms.setText("");
-            view.txtNm.setDate(new java.util.Date());
+            view.txtNm.setDate(null);
             view.txtNt.setDate(null);
-            view.txtSl.setText("");
+            view.txtSl.setText("0");
             view.txtQltv.setText("");
         }
     }
     class PintActionPerformed implements ActionListener{
+        //nút để xuất ra file txt
         @Override
         public void actionPerformed(ActionEvent e) {
-            System.out.println("Pint duoc bam");
         }
     }
     class ThoatActionPerformed implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
-            System.out.println("Thoat duoc bam");
+            // thêm xác nhận
+            int m = JOptionPane.showConfirmDialog(view, "Bạn có muốn trở lại?", "Xác nhận", JOptionPane.YES_NO_OPTION);
+            if (m == JOptionPane.YES_OPTION) {
+                View_ThuVien viewThuVien = new View_ThuVien();
+                TVcontrol tVcontrol = new TVcontrol(viewThuVien);
+                viewThuVien.setVisible(true);
+                view.dispose();
+            }
         }
     }
     class TkActionPerformed implements ActionListener{
+        //chỉ tìm theo msv và mã sách
         @Override
         public void actionPerformed(ActionEvent e) {
-            System.out.println("TK duoc bam");
+            String msv = view.txtMsv.getText();
+            String ms = view.txtms.getText();
+            showDL(mtdao.searchMT(msv, ms));
         }
     }
     class TraSachActionPerformed implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
-            String msv = view.txtMsv.getText();
-            String ms = view.txtms.getText();
-
+            MuonTra_ThuVien mt = view.getMT();
+            boolean b = mtdao.deleteMT(mt);
+            if (b) JOptionPane.showMessageDialog(view, "Trả thành công");
+            else JOptionPane.showMessageDialog(view, "Trả thất bại");
+            showDL();
         }
     }
     class thoat1ActionPerformed implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
-            System.out.println("thoat1 duoc bam");
+            int m = JOptionPane.showConfirmDialog(view, "Bạn có muốn thoát?","Xác nhận", JOptionPane.YES_NO_OPTION);
+            if (m == JOptionPane.YES_OPTION)
+                System.exit(0);
         }
     }
 }
