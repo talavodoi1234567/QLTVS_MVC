@@ -3,6 +3,7 @@ package Controller;
 import Model.MTTableModel;
 import Model.MuonTraDAO;
 import Model.MuonTra_ThuVien;
+import View.View_DangNhap;
 import View.View_QLMuonTra;
 import View.View_ThuVien;
 
@@ -136,9 +137,13 @@ public class MTControl {
     class thoat1ActionPerformed implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
-            int m = JOptionPane.showConfirmDialog(view, "Bạn có muốn thoát?","Xác nhận", JOptionPane.YES_NO_OPTION);
-            if (m == JOptionPane.YES_OPTION)
-                System.exit(0);
+            int m = JOptionPane.showConfirmDialog(view, "Bạn có muốn thoát?", "Xác nhận", JOptionPane.YES_NO_OPTION);
+            if (m == JOptionPane.YES_OPTION) {
+                View_DangNhap viewDangNhap = new View_DangNhap();
+                DNControl dnControl = new DNControl(viewDangNhap);
+                viewDangNhap.setVisible(true);
+                view.dispose();
+            }
         }
     }
 }

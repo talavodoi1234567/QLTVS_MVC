@@ -95,4 +95,29 @@ public class SachDAO extends TKDAO {
         }
         return false;
     }
+    public List<Sach_ThuVien> timKiem(String tenSach){
+        List<Sach_ThuVien> ds = new ArrayList<>();
+        Connection con = getConnection();
+        String sql = "SELECT * FROM sach WHERE TENSACH LIKE '" + tenSach + "%' ";
+        try {
+            Statement selectStatement = con.createStatement();
+            ResultSet rs = selectStatement.executeQuery(sql);
+            while (rs.next()){
+                String maSach = rs.getString("MASACH");
+                String TenSach = rs.getString("TENSACH");
+                int namXb = rs.getInt("NAMXB");
+                String nhaXb = rs.getString("NHAXB");
+                int gia = rs.getInt("GIA");
+                int soLuong = rs.getInt("SOLUONG");
+                Sach_ThuVien sach = new Sach_ThuVien(maSach, TenSach, namXb, nhaXb, gia, soLuong);
+                ds.add(sach);
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally {
+            closeConnection(con);
+        }
+        return ds;
+    }
+
 }

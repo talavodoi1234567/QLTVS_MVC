@@ -66,14 +66,16 @@ public class QLSControl {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-
+            System.out.println("Print1 duoc bam");
         }
     }
     class SuaActionListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-
+            Sach_ThuVien sach = view.getSach();
+            sachDAO.updateSach(sach);
+            showDL();
         }
     }
     class ThemActionListener implements ActionListener{
@@ -97,20 +99,20 @@ public class QLSControl {
                 Boolean success = sachDAO.addSach(sach);
                 if (success){
                     view.showMessage("Thêm Thành Công");
-                    sachDAO.hienThiSach();
+                    showDL();
                 }else {
                     view.showMessage("Thêm Thất bại");
                 }
             }
-
-
         }
     }
     class XoaActionListener implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent e) {
-
+            Sach_ThuVien sach = view.getSach();
+            sachDAO.deleteSach(sach);
+            showDL();
         }
     }
     class Thoat1ActionListener implements ActionListener{
@@ -128,7 +130,8 @@ public class QLSControl {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-
+            String tenSach = view.txtTk.getText();
+            showDL(sachDAO.timKiem(tenSach));
         }
     }
     class TroLaiActionListener implements ActionListener{

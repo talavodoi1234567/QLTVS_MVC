@@ -174,7 +174,7 @@ public class View_TTSach extends javax.swing.JFrame {
         btntk.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btntk.setForeground(new java.awt.Color(0, 51, 51));
         btntk.setIcon(new javax.swing.ImageIcon("Icon\\icons8-search-16.png")); // NOI18N
-        btntk.setText("Tìm Kiếm Mã Sách");
+        btntk.setText("Tìm Kiếm Tên Sách");
 //        btntk.addActionListener(new java.awt.event.ActionListener() {
 //            public void actionPerformed(java.awt.event.ActionEvent evt) {
 //                btntkActionPerformed(evt);
@@ -590,4 +590,9 @@ public class View_TTSach extends javax.swing.JFrame {
     public void BtnTkActionPerformed(ActionListener log){ btntk.addActionListener(log);}
     public void BtnResetActionPerformed(ActionListener log){ btnReset.addActionListener(log);}
     public void setTableModel(SachTableModel tableModel){jTable2.setModel(tableModel);}
+    public Sach_ThuVien getSach(){
+        Sach_ThuVien sach = new Sach_ThuVien(ms.getText(), ts.getText(), Integer.parseInt(nxb.getText()),
+                nnxb.getText(), Integer.parseInt(txtgia.getText()), Integer.parseInt(txtSoLuong.getText()));
+        return sach;
+    }
 }
