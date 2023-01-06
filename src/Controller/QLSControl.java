@@ -13,7 +13,11 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 public class QLSControl {
@@ -66,6 +70,27 @@ public class QLSControl {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            JFileChooser fc = new JFileChooser();//JFileChooser trong java là một đối tượng hiển thị khung cho phép bạn mở hoặc lưu file
+            fc.setDialogTitle("Lưu Tệp");//tên tiêu đề
+            int userSelection = fc.showSaveDialog(view);
+            if (userSelection == JFileChooser.APPROVE_OPTION) {
+                File filetosave = fc.getSelectedFile();
+                try {
+                    FileWriter fw = new FileWriter(filetosave);//Lớp FileWriter được sử dụng để ghi các dữ liệu theo định dạng ký tự vào một file
+                    BufferedWriter bw = new BufferedWriter(fw);//Lớp BufferedWriter được sử dụng để cung cấp bộ đệm cho các các thể hiện của lớp Writer
+                    for (int i = 0; i < view.jTable2.getRowCount(); i++) {
+                        for (int j = 0; j < view.jTable2.getColumnCount(); j++) {
+                            bw.write(view.jTable2.getValueAt(i, j).toString());
+                        }
+                        bw.newLine();
+                    }
+                    JOptionPane.showMessageDialog(view, "Thành Công ", "Thông Tin", JOptionPane.INFORMATION_MESSAGE);
+                    bw.close();
+                    fw.close();
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(view, "Error", "Error message", JOptionPane.ERROR_MESSAGE);
+                }
+            }
             System.out.println("Print1 duoc bam");
         }
     }
@@ -73,35 +98,61 @@ public class QLSControl {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            Sach_ThuVien sach = view.getSach();
-            sachDAO.updateSach(sach);
-            showDL();
+            int select = view.jTable2.getSelectedRow();
+            if(select >= 0){
+                Sach_ThuVien sach = view.getSach();
+                sachDAO.updateSach(sach);
+                showDL();
+            }else {
+                view.showMessage("Bạn chưa chọn sách để sửa thông tin");
+            }
+
         }
     }
     class ThemActionListener implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            int th = JOptionPane.showConfirmDialog(view, "Bạn có muốn thêm", "Confirm", JOptionPane.YES_NO_OPTION);
-            if (th != JOptionPane.YES_OPTION) {
-                return;
-            }
             String masach = view.ms.getText();
             String tensach = view.ts.getText();
             String nhaxb = view.nnxb.getText();
-            int  namxb = Integer.parseInt(view.nxb.getText());
-            int gia = Integer.parseInt(view.txtgia.getText());
-            int soluong = Integer.parseInt(view.txtSoLuong.getText());
-            if (masach.equals("")||tensach.equals("")||nhaxb.equals("")||view.nxb.equals("")||view.txtgia.equals("")||view.txtSoLuong.equals("")){
-                view.showMessage("Vui lòng điền đầy đủ thông tin");
+            String namxb1 = view.nxb.getText();
+            String gia1 = view.txtgia.getText();
+            String soluong1 = view.txtSoLuong.getText();
+            String reg = "\\d+";
+            Calendar instance = Calendar.getInstance();
+            int year = instance.get(Calendar.YEAR);
+            int th = JOptionPane.showConfirmDialog(view, "Bạn có muốn thêm", "Confirm", JOptionPane.YES_NO_OPTION);
+            if (th != JOptionPane.YES_OPTION) {
+                return;
             }else {
-                Sach_ThuVien sach = new Sach_ThuVien(masach,tensach,namxb,nhaxb,gia,soluong);
-                Boolean success = sachDAO.addSach(sach);
-                if (success){
-                    view.showMessage("Thêm Thành Công");
-                    showDL();
+                if (masach.equals("")||tensach.equals("")||nhaxb.equals("")||namxb1.isEmpty()||gia1.isEmpty()||soluong1.isEmpty()){
+                    view.showMessage("Vui lòng điền đầy đủ thông tin");
                 }else {
-                    view.showMessage("Thêm Thất bại");
+                    if (sachDAO.checkMasach(masach)){
+                        if(namxb1.matches(reg)&& gia1.matches(reg)&&soluong1.matches(reg)){
+                            int  namxb = Integer.parseInt(view.nxb.getText());
+                            int gia = Integer.parseInt(view.txtgia.getText());
+                            int soluong = Integer.parseInt(view.txtSoLuong.getText());
+                            if (namxb<=year){
+                                Sach_ThuVien sach = new Sach_ThuVien(masach,tensach,namxb,nhaxb,gia,soluong);
+                                Boolean success = sachDAO.addSach(sach);
+                                if (success){
+                                    view.showMessage("Thêm Thành Công");
+                                    showDL();
+                                    reset();
+                                }else {
+                                    view.showMessage("Thêm Thất bại");
+                                }
+                            }else {
+                                view.showMessage("Năm xuất bản lớn hơn năm hiện tại, vui lòng nhập lại");
+                            }
+                        }else {
+                            view.showMessage("Nhập sai định dạng dữ liệu, vui lòng nhập lại");
+                        }
+                    }else {
+                        view.showMessage("Mã Sách bị trùng, vui lòng nhập lại");
+                    }
                 }
             }
         }
@@ -110,19 +161,38 @@ public class QLSControl {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            Sach_ThuVien sach = view.getSach();
-            sachDAO.deleteSach(sach);
-            showDL();
+            int select = view.jTable2.getSelectedRow();//lấy ra dòng được chọn
+            if (select>=0){
+                int th = JOptionPane.showConfirmDialog(view, "Bạn chắc chắn muốn xóa?", "Confirm", JOptionPane.YES_NO_OPTION);
+                if (th != JOptionPane.YES_OPTION) {
+                    return;
+                }
+                Sach_ThuVien sach = view.getSach();
+                sachDAO.deleteSach(sach);
+                reset();
+                showDL();
+                view.showMessage("Xóa thành công");
+            }else {
+                view.showMessage("Bạn chưa chọn sách để xóa");
+            }
+
+
         }
     }
     class Thoat1ActionListener implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            View_DangNhap viewDangNhap = new View_DangNhap();
-            DNControl dnControl = new DNControl(viewDangNhap);
-            viewDangNhap.setVisible(true);
-            view.dispose();
+            int th = JOptionPane.showConfirmDialog(view, "Bạn chắc chắn muốn thoát?", "Confirm", JOptionPane.YES_NO_OPTION);
+            if (th != JOptionPane.YES_OPTION) {
+                return;
+            } else {
+                View_DangNhap viewDangNhap = new View_DangNhap();
+                DNControl dnControl = new DNControl(viewDangNhap);
+                viewDangNhap.setVisible(true);
+                view.dispose();
+            }
+
 
         }
     }

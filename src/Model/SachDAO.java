@@ -1,9 +1,6 @@
 package Model;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -118,6 +115,29 @@ public class SachDAO extends TKDAO {
             closeConnection(con);
         }
         return ds;
+    }
+    public boolean checkMasach (String masach){
+        Connection con = getConnection();
+        String sql = "SELECT MASACH FROM SACH";
+        boolean check = true;
+        try {
+            PreparedStatement CheckStatement = con.prepareStatement(sql);
+
+            ResultSet rs = CheckStatement.executeQuery();
+            //kiểm tra username có trùng chưa
+            while (rs.next()){
+                if(masach.equals(rs.getString("MASACH"))){
+                    check = false;
+                    break;
+                }
+            }
+            CheckStatement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            closeConnection(con);
+        }
+        return check;
     }
 
 }
