@@ -41,7 +41,7 @@ public class View_ThongKe extends JFrame {
             SVTraSachTre = new javax.swing.JPanel();
             jLabel3 = new javax.swing.JLabel();
             jScrollPane2 = new javax.swing.JScrollPane();
-            jTable2 = new javax.swing.JTable();
+            SVTre = new javax.swing.JTable();
             jSeparator3 = new javax.swing.JSeparator();
             jLabel10 = new javax.swing.JLabel();
             SachmuontheoSV = new javax.swing.JPanel();
@@ -50,14 +50,14 @@ public class View_ThongKe extends JFrame {
             jLabel5 = new javax.swing.JLabel();
             jButton1 = new javax.swing.JButton();
             jScrollPane3 = new javax.swing.JScrollPane();
-            jTable3 = new javax.swing.JTable();
+            Muontheosv = new javax.swing.JTable();
             jSeparator5 = new javax.swing.JSeparator();
             jLabel12 = new javax.swing.JLabel();
             LuotMuonThang = new javax.swing.JPanel();
             jLabel2 = new javax.swing.JLabel();
             thang = new javax.swing.JComboBox<>();
             jScrollPane1 = new javax.swing.JScrollPane();
-            jTable1 = new javax.swing.JTable();
+            MuonThang = new javax.swing.JTable();
             thang1 = new javax.swing.JComboBox<>();
             jLabel8 = new javax.swing.JLabel();
             jSeparator4 = new javax.swing.JSeparator();
@@ -66,7 +66,7 @@ public class View_ThongKe extends JFrame {
             SachTreHen = new javax.swing.JPanel();
             jLabel6 = new javax.swing.JLabel();
             jScrollPane4 = new javax.swing.JScrollPane();
-            jTable4 = new javax.swing.JTable();
+            sachtrehen = new javax.swing.JTable();
             jSeparator2 = new javax.swing.JSeparator();
             jLabel11 = new javax.swing.JLabel();
             menu = new javax.swing.JPanel();
@@ -82,15 +82,15 @@ public class View_ThongKe extends JFrame {
             setBackground(new java.awt.Color(204, 255, 204));
             setBounds(new java.awt.Rectangle(600, 800, 0, 0));
             setSize(new java.awt.Dimension(800, 800));
-
+            setLocation(400,40);
             SVTraSachTre.setBackground(new java.awt.Color(255, 255, 153));
 
             jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
             jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel3.setText("DANH SÁCH SINH VIÊN TRẢ SÁCH TRỄ HẸN");
 
-            jTable2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-            jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            SVTre.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+            SVTre.setModel(new javax.swing.table.DefaultTableModel(
                     new Object [][] {
                             {null, null},
                             {null, null},
@@ -103,7 +103,7 @@ public class View_ThongKe extends JFrame {
                             "Mã sinh viên", "Số lượng sách"
                     }
             ));
-            jScrollPane2.setViewportView(jTable2);
+            jScrollPane2.setViewportView(SVTre);
 
             jSeparator3.setForeground(new java.awt.Color(153, 0, 204));
             jSeparator3.setMinimumSize(new java.awt.Dimension(50, 20));
@@ -160,7 +160,7 @@ public class View_ThongKe extends JFrame {
 
             //jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/search.png"))); // NOI18N
 
-            jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            Muontheosv.setModel(new javax.swing.table.DefaultTableModel(
                     new Object [][] {
                             {null, null, null, null, null, null},
                             {null, null, null, null, null, null},
@@ -171,7 +171,7 @@ public class View_ThongKe extends JFrame {
                             "Mã sách", "Tên sách", "Giá", "Số lượng", "Ngày mượn", "Ngày hẹn trả"
                     }
             ));
-            jScrollPane3.setViewportView(jTable3);
+            jScrollPane3.setViewportView(Muontheosv);
 
             jSeparator5.setForeground(new java.awt.Color(255, 153, 255));
 
@@ -242,7 +242,7 @@ public class View_ThongKe extends JFrame {
                 }
             });
 
-            jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            MuonThang.setModel(new javax.swing.table.DefaultTableModel(
                     new Object [][] {
                             {null, null, null, null, null, null},
                             {null, null, null, null, null, null},
@@ -253,7 +253,7 @@ public class View_ThongKe extends JFrame {
                             "Mã sinh viên", "Mã Sách", "Ngày mượn", "Ngày hẹn trả", "Số Lượng", "QLTV"
                     }
             ));
-            jScrollPane1.setViewportView(jTable1);
+            jScrollPane1.setViewportView(MuonThang);
 
             thang1.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
             thang1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Năm 2022", "Năm 2023" }));
@@ -326,7 +326,7 @@ public class View_ThongKe extends JFrame {
             jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel6.setText("DANH SÁCH CÁC ĐẦU SÁCH BỊ TRẢ TRỄ HẸN");
 
-            jTable4.setModel(new javax.swing.table.DefaultTableModel(
+            sachtrehen.setModel(new javax.swing.table.DefaultTableModel(
                     new Object [][] {
                             {null, null, null, null},
                             {null, null, null, null},
@@ -337,7 +337,7 @@ public class View_ThongKe extends JFrame {
                             "Mã sách", "Tên sách", "Giá", "Số lượng"
                     }
             ));
-            jScrollPane4.setViewportView(jTable4);
+            jScrollPane4.setViewportView(sachtrehen);
 
             jSeparator2.setForeground(new java.awt.Color(153, 255, 153));
 
@@ -588,10 +588,10 @@ public class View_ThongKe extends JFrame {
         private javax.swing.JSeparator jSeparator3;
         private javax.swing.JSeparator jSeparator4;
         private javax.swing.JSeparator jSeparator5;
-        private javax.swing.JTable jTable1;
-        private javax.swing.JTable jTable2;
-        private javax.swing.JTable jTable3;
-        private javax.swing.JTable jTable4;
+        private javax.swing.JTable MuonThang;
+        private javax.swing.JTable SVTre;
+        private javax.swing.JTable Muontheosv;
+        private javax.swing.JTable sachtrehen;
         private javax.swing.JTextField jTextField1;
         private javax.swing.JPanel menu;
         private javax.swing.JComboBox<String> thang;
