@@ -94,7 +94,7 @@ public class View_QLMuonTra extends JFrame {
         jButton4.setText("jButton4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        //setLocationRelativeTo(null);
+        setLocation(400,0);
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon("Icon\\icons8-book-shelf-48.png")); // NOI18N

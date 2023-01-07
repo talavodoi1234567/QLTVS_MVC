@@ -17,11 +17,11 @@ public class View_DangNhap extends JFrame {
         txtusername = new javax.swing.JTextField();
         btndangnhap = new javax.swing.JButton();
         jfpwd = new javax.swing.JPasswordField();
-        btnThemTk = new javax.swing.JButton();
-
+        //btnThemTk = new javax.swing.JButton();
+        jComboBox2 = new javax.swing.JComboBox<>();
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
-        setLocationRelativeTo(null);
+        setLocation(600,200);
 
         jPanel1.setBorder(new javax.swing.border.MatteBorder(null));
 
@@ -36,7 +36,8 @@ public class View_DangNhap extends JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setIcon(new javax.swing.ImageIcon("Icon\\icons8-add-user-male-48.png")); // NOI18N
         jLabel2.setText("UserName:");
-
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrator", "Nhân Viên" }));
+        jComboBox2.setToolTipText("");
         jLabel3.setBackground(new java.awt.Color(102, 102, 102));
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setIcon(new javax.swing.ImageIcon("Icon\\icons8-keepass-50.png")); // NOI18N
@@ -57,11 +58,11 @@ public class View_DangNhap extends JFrame {
 
         jfpwd.setBackground(new java.awt.Color(204, 204, 204));
 
-        btnThemTk.setBackground(new java.awt.Color(0, 153, 153));
-        btnThemTk.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnThemTk.setForeground(new java.awt.Color(0, 51, 51));
-        btnThemTk.setIcon(new javax.swing.ImageIcon("Icon\\icons8-add-user-group-man-man-24.png")); // NOI18N
-        btnThemTk.setText("Thêm Account");
+//        btnThemTk.setBackground(new java.awt.Color(0, 153, 153));
+//        btnThemTk.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+//        btnThemTk.setForeground(new java.awt.Color(0, 51, 51));
+//        btnThemTk.setIcon(new javax.swing.ImageIcon("Icon\\icons8-add-user-group-man-man-24.png")); // NOI18N
+//        btnThemTk.setText("Thêm Account");
 //        btnThemTk.addActionListener(new java.awt.event.ActionListener() {
 //            public void actionPerformed(java.awt.event.ActionEvent evt) {
 //                //btnThemTkActionPerformed(evt);
@@ -72,13 +73,13 @@ public class View_DangNhap extends JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(48, 48, 48))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(btnThemTk)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(btndangnhap))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addComponent(jLabel2)
@@ -89,12 +90,12 @@ public class View_DangNhap extends JFrame {
                                                                 .addComponent(txtusername, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(jfpwd, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(48, 48, 48))
+                                                                .addComponent(jfpwd, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(btndangnhap)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap(25, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,10 +109,10 @@ public class View_DangNhap extends JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jfpwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jLabel3))
-                                .addGap(31, 31, 31)
+                                .addGap(30, 30, 30)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(btnThemTk)
-                                        .addComponent(btndangnhap))
+                                        .addComponent(btndangnhap)
+                                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -132,6 +133,7 @@ public class View_DangNhap extends JFrame {
                                 .addGap(20, 20, 20))
         );
 
+
         pack();
     }
 
@@ -142,7 +144,8 @@ public class View_DangNhap extends JFrame {
             }
         });
     }
-    private javax.swing.JButton btnThemTk;
+    //private javax.swing.JButton btnThemTk;
+    public javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JButton btndangnhap;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -153,9 +156,9 @@ public class View_DangNhap extends JFrame {
     public void AddbtndangnhapActionPerformed(ActionListener log){
         btndangnhap.addActionListener(log);
     }
-    public void AddbtnThemTkActionPerformed(ActionListener log){
-        btnThemTk.addActionListener(log);
-    }
+//    public void AddbtnThemTkActionPerformed(ActionListener log){
+//        btnThemTk.addActionListener(log);
+//    }
     public void showMessage(String msg){
         JOptionPane.showMessageDialog(this, msg);
     }

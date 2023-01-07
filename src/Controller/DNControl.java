@@ -5,6 +5,7 @@ import Model.TaiKhoan;
 import View.View_DangKy;
 import View.View_DangNhap;
 import View.View_ThuVien;
+import View.View_ThuVien2;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,24 +17,35 @@ public class DNControl {
         this.view = view;
         tkdao = new TKDAO();
         view.AddbtndangnhapActionPerformed(new AddLoginListener());
-        view.AddbtnThemTkActionPerformed(new AddSignupListener());
+       // view.AddbtnThemTkActionPerformed(new AddSignupListener());
 
     }
     class AddLoginListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-        if(view.txtusername.getText().equals("")||view.jfpwd.getText().equals("")){
+            String user = view.txtusername.getText();
+            String pass = view.jfpwd.getText();
+            String phanquyen = view.jComboBox2.getSelectedItem().toString();
+        if(user.equals("")||pass.equals("")){
             view.showMessage("Vui lòng điền đẩy đủ các thông tin");
         }else
-        {     Boolean sucess =  tkdao.login(view.txtusername.getText(),view.jfpwd.getText());
+        {     Boolean sucess =  tkdao.login(user,pass,phanquyen);
               if(sucess) {
                   view.showMessage("Đăng nhập thành công");
-                  View_ThuVien viewThuVien = new View_ThuVien();
-                  viewThuVien.setVisible(true);
-                  //view.setVisible(false);
-                  view.dispose();
-                  TVcontrol tVcontrol = new TVcontrol(viewThuVien);
+                  if(phanquyen.equals("Administrator")){
+                      View_ThuVien2 viewThuVien2 = new View_ThuVien2();
+                      viewThuVien2.setVisible(true);
+                      //view.setVisible(false);
+                      view.dispose();
+                      TV2control tVcontrol = new TV2control(viewThuVien2);
+                  } else {
+                      View_ThuVien viewThuVien = new View_ThuVien();
+                      viewThuVien.setVisible(true);
+                      TVcontrol tVcontrol = new TVcontrol(viewThuVien);
+                      view.dispose();
+                  }
+
               } else
               {
                   view.showMessage("Đăng nhập thất bại");
@@ -42,15 +54,5 @@ public class DNControl {
         }
         }
     }
-    class AddSignupListener implements ActionListener {
 
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            View_DangKy viewDangKy = new View_DangKy();
-            viewDangKy.setVisible(true);
-            DKControl dkControl= new DKControl(viewDangKy);
-            //view.setVisible(false);
-            view.dispose();
-        }
-    }
 }
