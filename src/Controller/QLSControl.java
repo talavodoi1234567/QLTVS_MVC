@@ -1,12 +1,11 @@
 package Controller;
 
-import Model.MuonTra_ThuVien;
 import Model.SachDAO;
 import Model.SachTableModel;
 import Model.Sach_ThuVien;
 import View.View_DangNhap;
 import View.View_TTSach;
-import View.View_ThuVien;
+import View.View_ThuVien2;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -16,7 +15,6 @@ import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
@@ -211,8 +209,8 @@ public class QLSControl {
             int Exit = JOptionPane.showConfirmDialog(view, "Bạn có muốn rời khỏi trang?", "Confirm", JOptionPane.YES_NO_OPTION);
         if (Exit != JOptionPane.YES_OPTION) {return;}
             view.dispose();
-            View_ThuVien viewThuVien = new View_ThuVien();
-            TVcontrol tVcontrol = new TVcontrol(viewThuVien);
+            View_ThuVien2 viewThuVien = new View_ThuVien2();
+            TV2control tVcontrol = new TV2control(viewThuVien);
             viewThuVien.setVisible(true);
         }
     }

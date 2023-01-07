@@ -5,11 +5,11 @@ import java.util.Date;
 public class NhanVien_ThuVien {
     String MaTT,HVT;
     Date ns;
-    String gt,diachi, email,user, pass, phanquyen;
+    String gt,diachi, email,user, pass;
     public NhanVien_ThuVien(){
     }
 
-    public NhanVien_ThuVien(String maTT, String HVT, Date ns, String gt, String diachi, String email, String user, String pass, String phanquyen) {
+    public NhanVien_ThuVien(String maTT, String HVT, Date ns, String gt, String diachi, String email, String user, String pass) {
         MaTT = maTT;
         this.HVT = HVT;
         this.ns = ns;
@@ -18,17 +18,15 @@ public class NhanVien_ThuVien {
         this.email = email;
         this.user = user;
         this.pass = pass;
-        this.phanquyen= phanquyen;
     }
 
-    public NhanVien_ThuVien(String maTT, String HVT, Date ns, String gt, String diachi, String email, String phanquyen) {
+    public NhanVien_ThuVien(String maTT, String HVT, Date ns, String gt, String diachi, String email) {
         MaTT = maTT;
         this.HVT = HVT;
         this.ns = ns;
         this.gt = gt;
         this.diachi = diachi;
         this.email = email;
-        this.phanquyen = phanquyen;
     }
 
     public String getMaTT() {
@@ -95,11 +93,4 @@ public class NhanVien_ThuVien {
         this.pass = pass;
     }
 
-    public String getPhanquyen() {
-        return phanquyen;
-    }
-
-    public void setPhanquyen(String phanquyen) {
-        this.phanquyen = phanquyen;
-    }
 }

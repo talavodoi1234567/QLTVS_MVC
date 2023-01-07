@@ -1,10 +1,7 @@
 package Controller;
 
 import Model.TKDAO;
-import Model.TaiKhoan;
-import View.View_DangKy;
 import View.View_DangNhap;
-import View.View_ThuVien;
 import View.View_ThuVien2;
 
 import java.awt.event.ActionEvent;
@@ -30,22 +27,14 @@ public class DNControl {
         if(user.equals("")||pass.equals("")){
             view.showMessage("Vui lòng điền đẩy đủ các thông tin");
         }else
-        {     Boolean sucess =  tkdao.login(user,pass,phanquyen);
-              if(sucess) {
+        {     Boolean success =  tkdao.login(user,pass,phanquyen);
+              if(success) {
                   view.showMessage("Đăng nhập thành công");
-                  if(phanquyen.equals("Administrator")){
                       View_ThuVien2 viewThuVien2 = new View_ThuVien2();
                       viewThuVien2.setVisible(true);
                       //view.setVisible(false);
                       view.dispose();
                       TV2control tVcontrol = new TV2control(viewThuVien2);
-                  } else {
-                      View_ThuVien viewThuVien = new View_ThuVien();
-                      viewThuVien.setVisible(true);
-                      TVcontrol tVcontrol = new TVcontrol(viewThuVien);
-                      view.dispose();
-                  }
-
               } else
               {
                   view.showMessage("Đăng nhập thất bại");

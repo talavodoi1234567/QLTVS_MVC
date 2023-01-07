@@ -3,7 +3,6 @@ package Controller;
 import Model.*;
 import View.View_DangNhap;
 import View.View_QLThuThu;
-import View.View_ThuVien;
 import View.View_ThuVien2;
 
 import javax.swing.*;
@@ -11,10 +10,6 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.util.Calendar;
 import java.util.List;
 
 public class QLTTControl {
@@ -48,8 +43,6 @@ public class QLTTControl {
                         gt = view.jTable2.getValueAt(selectedRow,3)+"";
                         view.diachi.setText(view.jTable2.getValueAt(selectedRow,4)+"");
                         view.email.setText(view.jTable2.getValueAt(selectedRow,5)+"");
-                        String phanquyen = view.jComboBox2.getSelectedItem().toString();
-                        phanquyen = view.jTable2.getValueAt(selectedRow,6)+"";
                     }
                 }
             });
@@ -71,8 +64,8 @@ public class QLTTControl {
         public void actionPerformed(ActionEvent e) {
             int select = view.jTable2.getSelectedRow();
             if(select >= 0){
-                NhanVien_ThuVien nhavien = view.getNhanVien();
-                nhanVienDao.updateNhanVien(nhavien);
+                NhanVien_ThuVien nhanvien = view.getNhanVien();
+                nhanVienDao.updateNhanVien(nhanvien);
                 showDL();
             }else {
                 view.showMessage("Bạn chưa chọn nhân viên để sửa thông tin");

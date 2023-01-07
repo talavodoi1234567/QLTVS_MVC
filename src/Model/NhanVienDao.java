@@ -20,8 +20,7 @@ public class NhanVienDao extends TKDAO{
                 String gt = rs.getString("GT");
                 String diachi = rs.getString("DIACHI");
                 String email = rs.getString("EMAIl");
-                String phanquyen = rs.getString("PHANQUYEN");
-                NhanVien_ThuVien nhanVien = new NhanVien_ThuVien(matt, hvt,ns,gt,diachi,email,phanquyen);
+                NhanVien_ThuVien nhanVien = new NhanVien_ThuVien(matt, hvt,ns,gt,diachi,email);
                 ds.add(nhanVien);
 
             }
@@ -34,7 +33,7 @@ public class NhanVienDao extends TKDAO{
     }
     public boolean addNhanVien(NhanVien_ThuVien nhanvien){
         Connection con = getConnection();
-        String sql = "INSERT INTO `NHANVIEN`(`MATT`, `HVT`, `NS`,'GT', `DIACHI`, `EMAIL`, 'USER', 'PASS','PHANQUYEN') VALUES (?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO `NHANVIEN`(`MATT`, `HVT`, `NS`,'GT', `DIACHI`, `EMAIL`, 'USER', 'PASS') VALUES (?,?,?,?,?,?,?,?)";
         try{
             PreparedStatement addStatement = con.prepareStatement(sql);
             addStatement.setString(1, nhanvien.getMaTT());
@@ -45,7 +44,6 @@ public class NhanVienDao extends TKDAO{
             addStatement.setString(6, nhanvien.getEmail());
             addStatement.setString(7, nhanvien.getUser());
             addStatement.setString(8, nhanvien.getPass());
-            addStatement.setString(9, nhanvien.getPhanquyen());
 
             addStatement.executeUpdate();
 
@@ -111,8 +109,7 @@ public class NhanVienDao extends TKDAO{
                 String gt = rs.getString("GT");
                 String diachi = rs.getString("DIACHI");
                 String email = rs.getString("EMAIL");
-                String phanquyen = rs.getString("PHANQUYEN");
-                NhanVien_ThuVien nhanvien = new NhanVien_ThuVien(matt,hvt,ns,gt,diachi,email,phanquyen);
+                NhanVien_ThuVien nhanvien = new NhanVien_ThuVien(matt,hvt,ns,gt,diachi,email);
                 ds.add(nhanvien);
             }
         }catch(Exception e){

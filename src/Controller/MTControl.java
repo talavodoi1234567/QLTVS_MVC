@@ -5,14 +5,13 @@ import Model.MuonTraDAO;
 import Model.MuonTra_ThuVien;
 import View.View_DangNhap;
 import View.View_QLMuonTra;
-import View.View_ThuVien;
+import View.View_ThuVien2;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Date;
 import java.text.SimpleDateFormat;
 //import java.util.Date;
 import java.util.List;
@@ -108,8 +107,8 @@ public class MTControl {
             // thêm xác nhận
             int m = JOptionPane.showConfirmDialog(view, "Bạn có muốn trở lại?", "Xác nhận", JOptionPane.YES_NO_OPTION);
             if (m == JOptionPane.YES_OPTION) {
-                View_ThuVien viewThuVien = new View_ThuVien();
-                TVcontrol tVcontrol = new TVcontrol(viewThuVien);
+                View_ThuVien2 viewThuVien = new View_ThuVien2();
+                TV2control tVcontrol = new TV2control(viewThuVien);
                 viewThuVien.setVisible(true);
                 view.dispose();
             }

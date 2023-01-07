@@ -30,14 +30,13 @@ public class TKDAO {
 
     public boolean login(String user, String pass, String phanquyen) {
         Connection con = getConnection();
-        String sql = "SELECT * FROM NHANVIEN where USER = ? and PASS = ? and PHANQUYEN = ?";
+        String sql = "SELECT * FROM NHANVIEN where USER = ? and PASS = ?";
         boolean bl = false;
         try {
             PreparedStatement loginStatement = con.prepareStatement(sql);
 
             loginStatement.setString(1, user);
             loginStatement.setString(2, pass);
-            loginStatement.setString(3,phanquyen);
 
             ResultSet rs = loginStatement.executeQuery();
             if (rs.next()) {
