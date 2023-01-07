@@ -41,7 +41,7 @@ public class View_ThongKe extends JFrame {
             SVTraSachTre = new javax.swing.JPanel();
             jLabel3 = new javax.swing.JLabel();
             jScrollPane2 = new javax.swing.JScrollPane();
-            SVTre = new javax.swing.JTable();
+            jTbsvtratre = new javax.swing.JTable();
             jSeparator3 = new javax.swing.JSeparator();
             jLabel10 = new javax.swing.JLabel();
             SachmuontheoSV = new javax.swing.JPanel();
@@ -50,14 +50,14 @@ public class View_ThongKe extends JFrame {
             jLabel5 = new javax.swing.JLabel();
             jButton1 = new javax.swing.JButton();
             jScrollPane3 = new javax.swing.JScrollPane();
-            Muontheosv = new javax.swing.JTable();
+            jTbsachmuon = new javax.swing.JTable();
             jSeparator5 = new javax.swing.JSeparator();
             jLabel12 = new javax.swing.JLabel();
             LuotMuonThang = new javax.swing.JPanel();
             jLabel2 = new javax.swing.JLabel();
             thang = new javax.swing.JComboBox<>();
             jScrollPane1 = new javax.swing.JScrollPane();
-            MuonThang = new javax.swing.JTable();
+            jTbmuontheothang = new javax.swing.JTable();
             thang1 = new javax.swing.JComboBox<>();
             jLabel8 = new javax.swing.JLabel();
             jSeparator4 = new javax.swing.JSeparator();
@@ -66,7 +66,7 @@ public class View_ThongKe extends JFrame {
             SachTreHen = new javax.swing.JPanel();
             jLabel6 = new javax.swing.JLabel();
             jScrollPane4 = new javax.swing.JScrollPane();
-            sachtrehen = new javax.swing.JTable();
+            jTbsachtratre = new javax.swing.JTable();
             jSeparator2 = new javax.swing.JSeparator();
             jLabel11 = new javax.swing.JLabel();
             menu = new javax.swing.JPanel();
@@ -77,6 +77,8 @@ public class View_ThongKe extends JFrame {
             jSeparator1 = new javax.swing.JSeparator();
             jButton4 = new javax.swing.JButton();
             jLabel13 = new javax.swing.JLabel();
+            jBtnThoat = new javax.swing.JButton();
+            jBtnTroLai = new javax.swing.JButton();
 
             setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
             setBackground(new java.awt.Color(204, 255, 204));
@@ -89,8 +91,8 @@ public class View_ThongKe extends JFrame {
             jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel3.setText("DANH SÁCH SINH VIÊN TRẢ SÁCH TRỄ HẸN");
 
-            SVTre.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-            SVTre.setModel(new javax.swing.table.DefaultTableModel(
+            jTbsvtratre.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+            jTbsvtratre.setModel(new javax.swing.table.DefaultTableModel(
                     new Object [][] {
                             {null, null},
                             {null, null},
@@ -103,12 +105,12 @@ public class View_ThongKe extends JFrame {
                             "Mã sinh viên", "Số lượng sách"
                     }
             ));
-            jScrollPane2.setViewportView(SVTre);
+            jScrollPane2.setViewportView(jTbsvtratre);
 
             jSeparator3.setForeground(new java.awt.Color(153, 0, 204));
             jSeparator3.setMinimumSize(new java.awt.Dimension(50, 20));
 
-            //jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/teamwork.png"))); // NOI18N
+            jLabel10.setIcon(new javax.swing.ImageIcon("Icon\\teamwork.png")); // NOI18N
 
             javax.swing.GroupLayout SVTraSachTreLayout = new javax.swing.GroupLayout(SVTraSachTre);
             SVTraSachTre.setLayout(SVTraSachTreLayout);
@@ -156,11 +158,12 @@ public class View_ThongKe extends JFrame {
 
             jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             //jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/man.png"))); // NOI18N
+            jLabel5.setIcon(new javax.swing.ImageIcon("Icon\\man.png"));
             jLabel5.setText("MSV:");
 
             //jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/search.png"))); // NOI18N
-
-            Muontheosv.setModel(new javax.swing.table.DefaultTableModel(
+            jButton1.setIcon(new javax.swing.ImageIcon("Icon\\search.png"));
+            jTbsachmuon.setModel(new javax.swing.table.DefaultTableModel(
                     new Object [][] {
                             {null, null, null, null, null, null},
                             {null, null, null, null, null, null},
@@ -171,38 +174,35 @@ public class View_ThongKe extends JFrame {
                             "Mã sách", "Tên sách", "Giá", "Số lượng", "Ngày mượn", "Ngày hẹn trả"
                     }
             ));
-            jScrollPane3.setViewportView(Muontheosv);
+            jScrollPane3.setViewportView(jTbsachmuon);
 
             jSeparator5.setForeground(new java.awt.Color(255, 153, 255));
 
-           // jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/people.png"))); // NOI18N
-
+            //jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/people.png"))); // NOI18N
+            jLabel12.setIcon(new javax.swing.ImageIcon("Icon\\people.png"));
             javax.swing.GroupLayout SachmuontheoSVLayout = new javax.swing.GroupLayout(SachmuontheoSV);
             SachmuontheoSV.setLayout(SachmuontheoSVLayout);
             SachmuontheoSVLayout.setHorizontalGroup(
                     SachmuontheoSVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(SachmuontheoSVLayout.createSequentialGroup()
-                                    .addGap(15, 15, 15)
-                                    .addGroup(SachmuontheoSVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(SachmuontheoSVLayout.createSequentialGroup()
-                                                    .addGap(25, 25, 25)
-                                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addContainerGap(22, Short.MAX_VALUE))
+                                    .addGap(40, 40, 40)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addContainerGap(397, Short.MAX_VALUE))
                             .addGroup(SachmuontheoSVLayout.createSequentialGroup()
-                                    .addGap(185, 185, 185)
-                                    .addComponent(jLabel12)
-                                    .addGap(18, 18, 18)
                                     .addGroup(SachmuontheoSVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(SachmuontheoSVLayout.createSequentialGroup()
-                                                    .addGap(6, 6, 6)
-                                                    .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addGap(185, 185, 185)
+                                                    .addComponent(jLabel12)
+                                                    .addGroup(SachmuontheoSVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addGroup(SachmuontheoSVLayout.createSequentialGroup()
+                                                                    .addGap(6, 6, 6)
+                                                                    .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGap(0, 0, Short.MAX_VALUE))
             );
             SachmuontheoSVLayout.setVerticalGroup(
@@ -221,9 +221,9 @@ public class View_ThongKe extends JFrame {
                                             .addGroup(SachmuontheoSVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(jLabel5)))
-                                    .addGap(28, 28, 28)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addContainerGap(42, Short.MAX_VALUE))
+                                    .addContainerGap())
             );
 
             LuotMuonThang.setBackground(new java.awt.Color(204, 204, 255));
@@ -242,7 +242,7 @@ public class View_ThongKe extends JFrame {
                 }
             });
 
-            MuonThang.setModel(new javax.swing.table.DefaultTableModel(
+            jTbmuontheothang.setModel(new javax.swing.table.DefaultTableModel(
                     new Object [][] {
                             {null, null, null, null, null, null},
                             {null, null, null, null, null, null},
@@ -253,18 +253,18 @@ public class View_ThongKe extends JFrame {
                             "Mã sinh viên", "Mã Sách", "Ngày mượn", "Ngày hẹn trả", "Số Lượng", "QLTV"
                     }
             ));
-            jScrollPane1.setViewportView(MuonThang);
+            jScrollPane1.setViewportView(jTbmuontheothang);
 
             thang1.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
             thang1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Năm 2022", "Năm 2023" }));
 
             //jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/calendar.png"))); // NOI18N
-
+            jLabel8.setIcon(new javax.swing.ImageIcon("Icon\\calendar.png"));
             jSeparator4.setForeground(new java.awt.Color(255, 255, 153));
             jSeparator4.setMinimumSize(new java.awt.Dimension(50, 20));
 
-           // jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/to-do-list.png"))); // NOI18N
-
+            //jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/to-do-list.png"))); // NOI18N
+            jLabel9.setIcon(new javax.swing.ImageIcon("Icon\\to-do-list.png"));
             javax.swing.GroupLayout LuotMuonThangLayout = new javax.swing.GroupLayout(LuotMuonThang);
             LuotMuonThang.setLayout(LuotMuonThangLayout);
             LuotMuonThangLayout.setHorizontalGroup(
@@ -326,7 +326,7 @@ public class View_ThongKe extends JFrame {
             jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel6.setText("DANH SÁCH CÁC ĐẦU SÁCH BỊ TRẢ TRỄ HẸN");
 
-            sachtrehen.setModel(new javax.swing.table.DefaultTableModel(
+            jTbsachtratre.setModel(new javax.swing.table.DefaultTableModel(
                     new Object [][] {
                             {null, null, null, null},
                             {null, null, null, null},
@@ -337,12 +337,12 @@ public class View_ThongKe extends JFrame {
                             "Mã sách", "Tên sách", "Giá", "Số lượng"
                     }
             ));
-            jScrollPane4.setViewportView(sachtrehen);
+            jScrollPane4.setViewportView(jTbsachtratre);
 
             jSeparator2.setForeground(new java.awt.Color(153, 255, 153));
 
-           // jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/books.png"))); // NOI18N
-
+            //jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/books.png"))); // NOI18N
+            jLabel11.setIcon(new javax.swing.ImageIcon("Icon\\books.png"));
             javax.swing.GroupLayout SachTreHenLayout = new javax.swing.GroupLayout(SachTreHen);
             SachTreHen.setLayout(SachTreHenLayout);
             SachTreHenLayout.setHorizontalGroup(
@@ -436,16 +436,28 @@ public class View_ThongKe extends JFrame {
                 }
             });
 
-           // jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/statistics.png"))); // NOI18N
+            //jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/statistics.png"))); // NOI18N
+            jLabel13.setIcon(new javax.swing.ImageIcon("Icon\\statistics.png"));
+            jBtnThoat.setText("Thoát");
+            jBtnThoat.setIcon(new javax.swing.ImageIcon("Icon\\logout.png"));
+//            jBtnThoat.addActionListener(new java.awt.event.ActionListener() {
+//                public void actionPerformed(java.awt.event.ActionEvent evt) {
+//                    jBtnThoatActionPerformed(evt);
+//                }
+//            });
+
+            jBtnTroLai.setText("Trở Lại");
+            jBtnTroLai.setIcon(new javax.swing.ImageIcon("Icon\\back.png"));
+//            jBtnTroLai.addActionListener(new java.awt.event.ActionListener() {
+//                public void actionPerformed(java.awt.event.ActionEvent evt) {
+//                    jBtnTroLaiActionPerformed(evt);
+//                }
+//            });
 
             javax.swing.GroupLayout menuLayout = new javax.swing.GroupLayout(menu);
             menu.setLayout(menuLayout);
             menuLayout.setHorizontalGroup(
                     menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuLayout.createSequentialGroup()
-                                    .addGap(0, 0, Short.MAX_VALUE)
-                                    .addComponent(jButton2)
-                                    .addGap(41, 41, 41))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuLayout.createSequentialGroup()
                                     .addContainerGap(25, Short.MAX_VALUE)
                                     .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -466,8 +478,17 @@ public class View_ThongKe extends JFrame {
                                                                             .addComponent(jLabel13))))
                                                     .addGap(15, 15, 15))
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuLayout.createSequentialGroup()
-                                                    .addComponent(jButton4)
+                                                    .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                            .addGroup(menuLayout.createSequentialGroup()
+                                                                    .addComponent(jBtnTroLai)
+                                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                    .addComponent(jBtnThoat))
+                                                            .addComponent(jButton4))
                                                     .addGap(37, 37, 37))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuLayout.createSequentialGroup()
+                                    .addGap(0, 0, Short.MAX_VALUE)
+                                    .addComponent(jButton2)
+                                    .addGap(41, 41, 41))
             );
             menuLayout.setVerticalGroup(
                     menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -486,6 +507,10 @@ public class View_ThongKe extends JFrame {
                                     .addComponent(jButton3)
                                     .addGap(18, 18, 18)
                                     .addComponent(jButton4)
+                                    .addGap(33, 33, 33)
+                                    .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jBtnThoat)
+                                            .addComponent(jBtnTroLai))
                                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             );
 
@@ -503,7 +528,6 @@ public class View_ThongKe extends JFrame {
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             );
-
             pack();
         }// </editor-fold>
 
@@ -588,15 +612,17 @@ public class View_ThongKe extends JFrame {
         private javax.swing.JSeparator jSeparator3;
         private javax.swing.JSeparator jSeparator4;
         private javax.swing.JSeparator jSeparator5;
-        private javax.swing.JTable MuonThang;
-        private javax.swing.JTable SVTre;
-        private javax.swing.JTable Muontheosv;
-        private javax.swing.JTable sachtrehen;
+        private javax.swing.JTable jTbmuontheothang;
+        private javax.swing.JTable jTbsvtratre;
+        private javax.swing.JTable jTbsachmuon;
+        private javax.swing.JTable jTbsachtratre;
         private javax.swing.JTextField jTextField1;
         private javax.swing.JPanel menu;
         private javax.swing.JComboBox<String> thang;
         private javax.swing.JComboBox<String> thang1;
         // End of variables declaration
+        private javax.swing.JButton jBtnThoat;
+        private javax.swing.JButton jBtnTroLai;
     }
 
 

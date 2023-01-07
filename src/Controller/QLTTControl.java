@@ -1,6 +1,8 @@
 package Controller;
 
-import Model.*;
+import Model.NhanVienDao;
+import Model.NhanVien_ThuVien;
+import Model.TTTableModel;
 import View.View_DangNhap;
 import View.View_QLThuThu;
 import View.View_ThuVien2;
@@ -10,7 +12,13 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
+import java.util.regex.Pattern;
+
+import static java.util.Calendar.getInstance;
 
 public class QLTTControl {
     private View_QLThuThu view;
@@ -29,6 +37,12 @@ public class QLTTControl {
         view.BtnXoaActionPerformed(new QLTTControl.XoaActionListener());
         view.BtnResetActionPerformed(new QLTTControl.ResetActionListener());
     }
+    String regexPattern = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
+    public static boolean patternMatches(String emailAddress, String regexPattern) {
+        return Pattern.compile(regexPattern)
+                .matcher(emailAddress)
+                .matches();
+    }
     public void addChonNhanVien(){
         try{
             view.jTable2.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
@@ -39,10 +53,21 @@ public class QLTTControl {
                         view.mtt.setText(view.jTable2.getValueAt(selectedRow,0)+"");
                         view.hvt.setText(view.jTable2.getValueAt(selectedRow,1)+"");
                         String ns = view.jTable2.getValueAt(selectedRow,2)+"";
-                        String gt = view.jComboBox1.getSelectedItem().toString();
-                        gt = view.jTable2.getValueAt(selectedRow,3)+"";
+                        String gt = view.jTable2.getValueAt(selectedRow,3)+"";
+                        if(gt.equals("Nam")){
+                            view.jComboBox1.setSelectedIndex(0);
+                        }else{
+                            view.jComboBox1.setSelectedIndex(1);
+                        }
                         view.diachi.setText(view.jTable2.getValueAt(selectedRow,4)+"");
                         view.email.setText(view.jTable2.getValueAt(selectedRow,5)+"");
+                        view.txtuser.setText(view.jTable2.getValueAt(selectedRow,6)+"");
+                        try {
+                            java.util.Date ns_date = new SimpleDateFormat("yyyy-MM-dd").parse(ns);
+                            view.ns.setDate(ns_date);
+                        }catch (Exception ex){
+                            ex.printStackTrace();
+                        }
                     }
                 }
             });
@@ -66,6 +91,7 @@ public class QLTTControl {
             if(select >= 0){
                 NhanVien_ThuVien nhanvien = view.getNhanVien();
                 nhanVienDao.updateNhanVien(nhanvien);
+                view.showMessage("Chỉnh sửa thành công");
                 showDL();
             }else {
                 view.showMessage("Bạn chưa chọn nhân viên để sửa thông tin");
@@ -77,69 +103,73 @@ public class QLTTControl {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-//            String masach = view.ms.getText();
-//            String tensach = view.ts.getText();
-//            String nhaxb = view.nnxb.getText();
-//            String namxb1 = view.nxb.getText();
-//            String gia1 = view.txtgia.getText();
-//            String soluong1 = view.txtSoLuong.getText();
-//            String reg = "\\d+";
-//            Calendar instance = Calendar.getInstance();
-//            int year = instance.get(Calendar.YEAR);
-//            int th = JOptionPane.showConfirmDialog(view, "Bạn có muốn thêm", "Confirm", JOptionPane.YES_NO_OPTION);
-//            if (th != JOptionPane.YES_OPTION) {
-//                return;
-//            }else {
-//                if (masach.equals("")||tensach.equals("")||nhaxb.equals("")||namxb1.isEmpty()||gia1.isEmpty()||soluong1.isEmpty()){
-//                    view.showMessage("Vui lòng điền đầy đủ thông tin");
-//                }else {
-//                    if (sachDAO.checkMasach(masach)){
-//                        if(namxb1.matches(reg)&& gia1.matches(reg)&&soluong1.matches(reg)){
-//                            int  namxb = Integer.parseInt(view.nxb.getText());
-//                            int gia = Integer.parseInt(view.txtgia.getText());
-//                            int soluong = Integer.parseInt(view.txtSoLuong.getText());
-//                            if (namxb<=year){
-//                                Sach_ThuVien sach = new Sach_ThuVien(masach,tensach,namxb,nhaxb,gia,soluong);
-//                                Boolean success = sachDAO.addSach(sach);
-//                                if (success){
-//                                    view.showMessage("Thêm Thành Công");
-//                                    showDL();
-//                                    reset();
-//                                }else {
-//                                    view.showMessage("Thêm Thất bại");
-//                                }
-//                            }else {
-//                                view.showMessage("Năm xuất bản lớn hơn năm hiện tại, vui lòng nhập lại");
-//                            }
-//                        }else {
-//                            view.showMessage("Nhập sai định dạng dữ liệu, vui lòng nhập lại");
-//                        }
-//                    }else {
-//                        view.showMessage("Mã Sách bị trùng, vui lòng nhập lại");
-//                    }
-//                }
-//            }
+            String matt = view.mtt.getText();
+            String hvt = view.hvt.getText();
+            Date ns = new Date(view.ns.getDate().getTime());
+            String gt = view.jComboBox1.getSelectedItem().toString();
+            String diachi = view.diachi.getText();
+            String email= view.email.getText();
+            String user = view.txtuser.getText();
+            String pass= view.txtpass.getText();
+            String reg = "\\d+";
+            java.util.Date date = new java.util.Date() ;
+            int th = JOptionPane.showConfirmDialog(view, "Bạn có muốn thêm", "Confirm", JOptionPane.YES_NO_OPTION);
+            if (th != JOptionPane.YES_OPTION) {
+                return;
+            }else {
+                if (matt.equals("")||hvt.equals("")||diachi.equals("")||ns.equals(null)||email.isEmpty()||user.isEmpty()||pass.isEmpty()){
+                    view.showMessage("Vui lòng điền đầy đủ thông tin");
+                }else {
+                    if (nhanVienDao.checkMATT(matt)){
+                        if(nhanVienDao.checkUser(user)){
+                            if (patternMatches(email,regexPattern)){
+                                if(!ns.after(date)) {
+                                    NhanVien_ThuVien nhanvien = new NhanVien_ThuVien(matt,hvt,ns,gt,diachi,email,user,pass);
+                                    Boolean success = nhanVienDao.addNhanVien(nhanvien);
+                                    if (success){
+                                        view.showMessage("Thêm Thành Công");
+                                        showDL();
+                                        reset();
+                                    }else {
+                                        view.showMessage("Thêm Thất bại");
+                                    }
+                                }else {
+                                    view.showMessage("Ngày Sinh không đúng, vui lòng chọn lại");
+                                }
+
+                            }else {
+                                view.showMessage("Email không đúng định dạng, vui lòng nhập lại");
+                            }
+                        }else {
+                            view.showMessage("Username bị trùng, vui lòng nhập lại");
+                        }
+                    }else {
+                        view.showMessage("Mã Thủ Thư bị trùng, vui lòng nhập lại");
+                    }
+                }
+            }
         }
     }
     class XoaActionListener implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent e) {
-//            int select = view.jTable2.getSelectedRow();//lấy ra dòng được chọn
-//            if (select>=0){
-//                int th = JOptionPane.showConfirmDialog(view, "Bạn chắc chắn muốn xóa?", "Confirm", JOptionPane.YES_NO_OPTION);
-//                if (th != JOptionPane.YES_OPTION) {
-//                    return;
-//                }
-//                Sach_ThuVien sach = view.getSach();
-//                sachDAO.deleteSach(sach);
-//                reset();
-//                showDL();
-//                view.showMessage("Xóa thành công");
-//            }else {
-//                view.showMessage("Bạn chưa chọn sách để xóa");
-//            }
-//
+            int select = view.jTable2.getSelectedRow();//lấy ra dòng được chọn
+            if (select>=0){
+                int th = JOptionPane.showConfirmDialog(view, "Bạn chắc chắn muốn xóa?", "Confirm", JOptionPane.YES_NO_OPTION);
+                if (th != JOptionPane.YES_OPTION) {
+                    return;
+                }
+                String matt = (String) view.jTable2.getValueAt(select,0);
+                //NhanVien_ThuVien nhanvien = view.getNhanVien();
+                nhanVienDao.deleteNhanVien(matt);
+                reset();
+                showDL();
+                view.showMessage("Xóa thành công");
+            }else {
+                view.showMessage("Bạn chưa chọn sách để xóa");
+            }
+
 
         }
     }

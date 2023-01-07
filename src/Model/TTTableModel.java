@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TTTableModel extends DefaultTableModel {
-    private final String[] columnNames = {"Mã TT", "Họ và Tên", "Ngày Sinh", "Giới Tính", "Địa Chỉ", "Email"};
+    private final String[] columnNames = {"Mã TT", "Họ và Tên", "Ngày Sinh", "Giới Tính", "Địa Chỉ", "Email","User"};
     private List<NhanVien_ThuVien> nhanvien;
     public TTTableModel(){
         nhanvien = new ArrayList<>();
@@ -36,6 +36,7 @@ public class TTTableModel extends DefaultTableModel {
             case 3 -> _nhanvien.getGt();
             case 4 -> _nhanvien.getDiachi();
             case 5 -> _nhanvien.getEmail();
+            case 6 -> _nhanvien.getUser();
             default -> null;
         };
     }

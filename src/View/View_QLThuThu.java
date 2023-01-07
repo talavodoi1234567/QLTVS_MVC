@@ -6,6 +6,7 @@ import Model.TTTableModel;
 import com.toedter.calendar.JDateChooser;
 
 import java.awt.event.ActionListener;
+import java.sql.Date;
 import java.util.List;
 
 import java.util.ArrayList;
@@ -186,13 +187,13 @@ public class View_QLThuThu extends javax.swing.JFrame {
         jTable2.setForeground(new java.awt.Color(51, 51, 51));
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
-                        {null, null, null, null, null, null},
-                        {null, null, null, null, null, null},
-                        {null, null, null, null, null, null},
-                        {null, null, null, null, null, null}
+                        {null, null, null, null, null, null,null},
+                        {null, null, null, null, null, null,null},
+                        {null, null, null, null, null, null,null},
+                        {null, null, null, null, null, null,null}
                 },
                 new String [] {
-                        "Mã TT", "Họ và Tên", "Ngày Sinh", "Giới Tính", "Địa Chỉ", "Email"
+                        "Mã TT", "Họ và Tên", "Ngày Sinh", "Giới Tính", "Địa Chỉ", "Email","User"
                 }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -612,8 +613,8 @@ public class View_QLThuThu extends javax.swing.JFrame {
     public void BtnResetActionPerformed(ActionListener log){ btnReset.addActionListener(log);}
     public void setTableModel(TTTableModel tableModel){jTable2.setModel(tableModel);}
     public NhanVien_ThuVien getNhanVien(){
-        NhanVien_ThuVien nhanvien = new NhanVien_ThuVien(mtt.getText(), hvt.getText(), ns.getDate(),
-                jComboBox1.getSelectedItem().toString(), diachi.getText(),email.getText());
+        NhanVien_ThuVien nhanvien = new NhanVien_ThuVien(mtt.getText(), hvt.getText(), new Date(ns.getDate().getTime()),
+                jComboBox1.getSelectedItem().toString(), diachi.getText(),email.getText(),txtuser.getText(),txtpass.getText());
         return nhanvien;
     }
     // End of variables declaration
