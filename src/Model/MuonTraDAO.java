@@ -34,7 +34,62 @@ public class MuonTraDAO extends TKDAO {
         }
         return ds;
     }
+    public boolean capnhatSL(String maSach, int soluong, boolean type){//type = 1: muon, 0: tra
+        Connection con = getConnection();
+        String sql = "SELECT soluong FROM sach where masach = '" + maSach + "'";
+        int sl = 0;
+        try{
+            Statement selectStatement = con.createStatement();
+            ResultSet rs = selectStatement.executeQuery(sql);
+            if (rs.next()){
+                sl = rs.getInt("soluong");
+                if ((sl < soluong) && type) return false;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            closeConnection(con);
+        }
+        con = getConnection();
+        sql = "UPDATE sach SET soluong = ? where masach = ?";
+        try {
+            PreparedStatement addStatement = con.prepareStatement(sql);
+            if (type)
+                addStatement.setInt(1,sl - soluong);
+            else
+                addStatement.setInt(1, sl + soluong);
+            addStatement.setString(2, maSach);
+            addStatement.executeUpdate();
+            addStatement.close();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            closeConnection(con);
+        }
+        return false;
+    }
+    public int getSLMuon(String masv, String masach){
+        Connection con = getConnection();
+        String sql = "SELECT soluong FROM muontra WHERE masv = ? and masach = ?";
+        int sl = 0;
+        try{
+            PreparedStatement getStatement = con.prepareStatement(sql);
+            getStatement.setString(1, masv);
+            getStatement.setString(2, masach);
+            ResultSet rs = getStatement.executeQuery();
+            if (rs.next()) {
+                sl = rs.getInt("soluong");
+            }
+            return sl;
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            closeConnection(con);
+        }
+        return 0;
+    }
     public boolean addMT(MuonTra_ThuVien mttv) {
         Connection con = getConnection();
         String sql = "INSERT INTO `muontra`(`MASV`, `MASACH`, `NGAYMUON`, `NGAYTRA`, `SOLUONG`, `QLTHUVIEN`) VALUES (?,?,?,?,?,?)";
@@ -46,7 +101,8 @@ public class MuonTraDAO extends TKDAO {
             addStatement.setDate(4, mttv.getNGAYTRA());
             addStatement.setInt(5, mttv.getSOLUONG());
             addStatement.setString(6, mttv.getQLTHUVIEN());
-            addStatement.executeUpdate();
+            if (capnhatSL(mttv.getMASACH(),mttv.getSOLUONG(),true))
+                addStatement.executeUpdate();
             addStatement.close();
             return true;
         } catch (Exception e) {
@@ -56,7 +112,6 @@ public class MuonTraDAO extends TKDAO {
         }
         return false;
     }
-
     public boolean deleteMT(MuonTra_ThuVien mttv) {
         Connection con = getConnection();
         String sql = "DELETE FROM muontra WHERE MASV=? and MASACH=?";
@@ -64,9 +119,9 @@ public class MuonTraDAO extends TKDAO {
             PreparedStatement deleteStatement = con.prepareStatement(sql);
             deleteStatement.setString(1, mttv.getMSV());
             deleteStatement.setString(2, mttv.getMASACH());
+            capnhatSL(mttv.getMASACH(), getSLMuon(mttv.getMSV(), mttv.getMASACH()),false);
             deleteStatement.executeUpdate();
             deleteStatement.close();
-
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -74,6 +129,7 @@ public class MuonTraDAO extends TKDAO {
             closeConnection(con);
         }
         return false;
+
     }
     public List<MuonTra_ThuVien> searchMT(String msv, String ms) {
         Connection con = getConnection();
