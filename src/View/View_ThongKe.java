@@ -1,7 +1,8 @@
 package View;
 
 import javax.swing.*;
-import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class View_ThongKe extends JFrame {
     public View_ThongKe() {
@@ -71,7 +72,7 @@ public class View_ThongKe extends JFrame {
             jLabel11 = new javax.swing.JLabel();
             menu = new javax.swing.JPanel();
             jLabel1 = new javax.swing.JLabel();
-            jBtnSVtraSachTre = new javax.swing.JButton();
+            jButton0 = new javax.swing.JButton();
             jButton2 = new javax.swing.JButton();
             jButton3 = new javax.swing.JButton();
             jSeparator1 = new javax.swing.JSeparator();
@@ -236,11 +237,11 @@ public class View_ThongKe extends JFrame {
 
             thang.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
             thang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12" }));
-            thang.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    thangActionPerformed(evt);
-                }
-            });
+//            thang.addActionListener(new java.awt.event.ActionListener() {
+//                public void actionPerformed(java.awt.event.ActionEvent evt) {
+//                    thangActionPerformed(evt);
+//                }
+//            });
 
             MuonThang.setModel(new javax.swing.table.DefaultTableModel(
                     new Object [][] {
@@ -406,13 +407,18 @@ public class View_ThongKe extends JFrame {
             jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel1.setText("THỐNG KÊ - BÁO CÁO");
 
-            jBtnSVtraSachTre.setText("Danh sách sinh viên tra sách muộn");
-            jBtnSVtraSachTre.addActionListener(new java.awt.event.ActionListener() {
+            jButton0.setText("Danh sách sinh viên tra sách muộn");
+            jButton0.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    jBtnSVtraSachTreActionPerformed(evt);
+                    System.out.println("JButton0");
                 }
             });
-
+            jButton1.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    System.out.println("JBtn1");
+                }
+            });
             jButton2.setText("Danh sách Sách trả muộn");
             jButton2.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -460,7 +466,7 @@ public class View_ThongKe extends JFrame {
                                                                     .addGap(9, 9, 9))
                                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                     .addComponent(jButton3)
-                                                                    .addComponent(jBtnSVtraSachTre)
+                                                                    .addComponent(jButton0)
                                                                     .addGroup(menuLayout.createSequentialGroup()
                                                                             .addGap(65, 65, 65)
                                                                             .addComponent(jLabel13))))
@@ -479,7 +485,7 @@ public class View_ThongKe extends JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jBtnSVtraSachTre)
+                                    .addComponent(jButton0)
                                     .addGap(18, 18, 18)
                                     .addComponent(jButton2)
                                     .addGap(18, 18, 18)
@@ -507,7 +513,7 @@ public class View_ThongKe extends JFrame {
             pack();
         }// </editor-fold>
 
-        private void jBtnSVtraSachTreActionPerformed(java.awt.event.ActionEvent evt) {
+        private void jButton0ActionPerformed(java.awt.event.ActionEvent evt) {
             // TODO add your handling code here:
             SVTraSachTre.setVisible(true);
             LuotMuonThang.setVisible(false);
@@ -556,15 +562,15 @@ public class View_ThongKe extends JFrame {
 
 
         // Variables declaration - do not modify
-        public static javax.swing.JPanel LuotMuonThang;
+        private static javax.swing.JPanel LuotMuonThang;
         private static javax.swing.JPanel SVTraSachTre;
         private static javax.swing.JPanel SachTreHen;
         private static javax.swing.JPanel SachmuontheoSV;
-        private javax.swing.JButton jBtnSVtraSachTre;
-        private javax.swing.JButton jButton1;
-        private javax.swing.JButton jButton2;
-        private javax.swing.JButton jButton3;
-        private javax.swing.JButton jButton4;
+        public javax.swing.JButton jButton0;
+        public javax.swing.JButton jButton1;
+        public javax.swing.JButton jButton2;
+        public javax.swing.JButton jButton3;
+        public javax.swing.JButton jButton4;
         private javax.swing.JLabel jLabel1;
         private javax.swing.JLabel jLabel10;
         private javax.swing.JLabel jLabel11;
@@ -588,10 +594,10 @@ public class View_ThongKe extends JFrame {
         private javax.swing.JSeparator jSeparator3;
         private javax.swing.JSeparator jSeparator4;
         private javax.swing.JSeparator jSeparator5;
-        private javax.swing.JTable MuonThang;
-        private javax.swing.JTable SVTre;
-        private javax.swing.JTable Muontheosv;
-        private javax.swing.JTable sachtrehen;
+        public javax.swing.JTable MuonThang;
+        public javax.swing.JTable SVTre;
+        public javax.swing.JTable Muontheosv;
+        public javax.swing.JTable sachtrehen;
         private javax.swing.JTextField jTextField1;
         private javax.swing.JPanel menu;
         private javax.swing.JComboBox<String> thang;

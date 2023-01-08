@@ -1,7 +1,6 @@
 package View;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class View_ThuVien2 extends JFrame {
@@ -37,8 +36,8 @@ public class View_ThuVien2 extends JFrame {
         btnQlm = new javax.swing.JButton();
         btnthoat = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        btnQls1 = new javax.swing.JButton();
-        btnQls2 = new javax.swing.JButton();
+        btnThongKe = new javax.swing.JButton();
+        btnQltt = new javax.swing.JButton();
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Quản Lý Thư Viện");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -77,21 +76,21 @@ public class View_ThuVien2 extends JFrame {
         btnthoat.setText("Thoát");
 
 
-        btnQls1.setBackground(new java.awt.Color(0, 102, 102));
-        btnQls1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnQls1.setForeground(new java.awt.Color(0, 102, 102));
-        btnQls1.setText("BÁO CÁO, THỐNG KÊ");
-        btnQls1.addActionListener(new java.awt.event.ActionListener() {
+        btnThongKe.setBackground(new java.awt.Color(0, 102, 102));
+        btnThongKe.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnThongKe.setForeground(new java.awt.Color(0, 102, 102));
+        btnThongKe.setText("BÁO CÁO, THỐNG KÊ");
+        btnThongKe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnQls1ActionPerformed(evt);
             }
         });
 
-        btnQls2.setBackground(new java.awt.Color(0, 102, 102));
-        btnQls2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnQls2.setForeground(new java.awt.Color(0, 102, 102));
-        btnQls2.setText("QUẢN LÝ THỦ THƯ");
-        btnQls2.addActionListener(new java.awt.event.ActionListener() {
+        btnQltt.setBackground(new java.awt.Color(0, 102, 102));
+        btnQltt.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnQltt.setForeground(new java.awt.Color(0, 102, 102));
+        btnQltt.setText("QUẢN LÝ THỦ THƯ");
+        btnQltt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnQls2ActionPerformed(evt);
             }
@@ -115,13 +114,13 @@ public class View_ThuVien2 extends JFrame {
                                 .addComponent(btnQls, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(btnQls1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnThongKe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(btnQlm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(61, 61, 61))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(59, 59, 59)
-                                        .addComponent(btnQls2)
+                                        .addComponent(btnQltt)
                                         .addContainerGap(375, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
@@ -138,14 +137,14 @@ public class View_ThuVien2 extends JFrame {
                                                         .addComponent(btnQls, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addComponent(btnQlm, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                                                .addComponent(btnQls1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(btnThongKe, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(18, 18, 18)))
                                 .addComponent(btnthoat, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(20, 20, 20))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                         .addContainerGap(192, Short.MAX_VALUE)
-                                        .addComponent(btnQls2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnQltt, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(94, 94, 94)))
         );
 
@@ -175,11 +174,11 @@ public class View_ThuVien2 extends JFrame {
 
 
     private void btnQls1ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        System.out.println("btnThongKe");
     }
 
     private void btnQls2ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        System.out.println("btnQltt");
     }
 
     /**
@@ -203,8 +202,8 @@ public class View_ThuVien2 extends JFrame {
     // Variables declaration - do not modify
     private javax.swing.JButton btnQlm;
     private javax.swing.JButton btnQls;
-    private javax.swing.JButton btnQls1;
-    private javax.swing.JButton btnQls2;
+    private javax.swing.JButton btnThongKe;
+    private javax.swing.JButton btnQltt;
     private javax.swing.JButton btnthoat;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
@@ -217,10 +216,10 @@ public class View_ThuVien2 extends JFrame {
         btnQls.addActionListener(log);
     }
     public void QltkActionPerformed(ActionListener log){
-        btnQls1.addActionListener(log);
+        btnThongKe.addActionListener(log);
     }
     public void QlttActionPerformed(ActionListener log){
-        btnQls2.addActionListener(log);
+        btnQltt.addActionListener(log);
     }
     public void ThoatActionPerformed(ActionListener log){
         btnthoat.addActionListener(log);
