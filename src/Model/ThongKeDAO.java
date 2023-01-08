@@ -81,4 +81,27 @@ public class ThongKeDAO extends TKDAO {
         }
         return ds;
     }
+    public List<TSM> TKTSM(){
+        Connection con = getConnection();
+        List<TSM> ds = new ArrayList<>();
+        String sql = "select masv, sum(soluong) as soluong " +
+                "from muontra " +
+                "GROUP BY masv";
+        try {
+            Statement selectStatement = con.createStatement();
+            ResultSet rs = selectStatement.executeQuery(sql);
+            while (rs.next()){
+                String maSV = rs.getString("MASV");
+                int soLuong = rs.getInt("SOLUONG");
+                TSM tt = new TSM(maSV,soLuong);
+                ds.add(tt);
+
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally {
+            closeConnection(con);
+        }
+        return ds;
+    }
 }

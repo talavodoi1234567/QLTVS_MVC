@@ -200,11 +200,11 @@ public class View_ThuVien2 extends JFrame {
     }
 
     // Variables declaration - do not modify
-    private javax.swing.JButton btnQlm;
-    private javax.swing.JButton btnQls;
-    private javax.swing.JButton btnThongKe;
-    private javax.swing.JButton btnQltt;
-    private javax.swing.JButton btnthoat;
+    public javax.swing.JButton btnQlm;
+    public javax.swing.JButton btnQls;
+    public javax.swing.JButton btnThongKe;
+    public javax.swing.JButton btnQltt;
+    public javax.swing.JButton btnthoat;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;

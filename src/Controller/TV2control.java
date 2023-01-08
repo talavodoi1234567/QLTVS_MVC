@@ -50,6 +50,7 @@ public class TV2control {
         @Override
         public void actionPerformed(ActionEvent e) {
             View_ThongKe viewThongKe = new View_ThongKe();
+            TKController tkController = new TKController(viewThongKe);
             viewThongKe.setVisible(true);
             view.dispose();
 
