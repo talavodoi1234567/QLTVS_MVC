@@ -1,6 +1,6 @@
 package Model;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class NhanVien_ThuVien {
     String MaTT,HVT;
@@ -20,13 +20,14 @@ public class NhanVien_ThuVien {
         this.pass = pass;
     }
 
-    public NhanVien_ThuVien(String maTT, String HVT, Date ns, String gt, String diachi, String email) {
+    public NhanVien_ThuVien(String maTT, String HVT, Date ns, String gt, String diachi, String email, String user) {
         MaTT = maTT;
         this.HVT = HVT;
         this.ns = ns;
         this.gt = gt;
         this.diachi = diachi;
         this.email = email;
+        this.user = user;
     }
 
     public String getMaTT() {
